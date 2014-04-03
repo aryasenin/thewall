@@ -11,9 +11,22 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+    //Informations Système
+    Boolean deleted = false
+    Date dateCreated
+    Date lastUpdated
+    String userCreated
+    String userUpdated
+
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+
+        dateCreated(nullable: true)
+        lastUpdated(nullable: true)
+        userCreated(nullable: true)
+        userUpdated(nullable: true)
+        deleted(nullable: true)
 	}
 
 	static mapping = {

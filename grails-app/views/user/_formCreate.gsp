@@ -11,7 +11,7 @@
         </label>
 
         <div class="col-sm-8">
-            <g:textField name="username" required="" value="${userInstance?.username}"/>
+            <g:textField class="form-control" name="username" required="" value="${userInstance?.username}"/>
         </div>
 
         <div class="separator bottom"></div>
@@ -27,7 +27,23 @@
         </label>
 
         <div class="col-sm-8">
-            <g:textField name="password" required="" value="${userInstance?.password}"/>
+            <g:textField class="form-control" name="password" required="" value="${userInstance?.password}"/>
+        </div>
+
+        <div class="separator bottom"></div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="form-group ${hasErrors(bean: userInstance, field: 'dateCreated', 'error')} ">
+
+        <label class="col-sm-3 control-label" for="dateCreated">
+            <g:message code="user.dateCreated.label" default="Date Created"/>
+            
+        </label>
+
+        <div class="col-sm-8">
+            <g:jqDatePicker name="dateCreated"  value="${userInstance?.dateCreated}" />
         </div>
 
         <div class="separator bottom"></div>
@@ -39,11 +55,11 @@
 
         <label class="col-sm-3 control-label" for="accountExpired">
             <g:message code="user.accountExpired.label" default="Account Expired"/>
-
+            
         </label>
 
         <div class="col-sm-8">
-            <g:checkBox name="accountExpired" value="${userInstance?.accountExpired}"/>
+            <div class="checkbox"> <g:checkBox name="accountExpired" value="${userInstance?.accountExpired}" /> </div>
         </div>
 
         <div class="separator bottom"></div>
@@ -55,11 +71,11 @@
 
         <label class="col-sm-3 control-label" for="accountLocked">
             <g:message code="user.accountLocked.label" default="Account Locked"/>
-
+            
         </label>
 
         <div class="col-sm-8">
-            <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}"/>
+            <div class="checkbox"> <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}" /> </div>
         </div>
 
         <div class="separator bottom"></div>
@@ -71,11 +87,11 @@
 
         <label class="col-sm-3 control-label" for="enabled">
             <g:message code="user.enabled.label" default="Enabled"/>
-
+            
         </label>
 
         <div class="col-sm-8">
-            <g:checkBox name="enabled" value="${userInstance?.enabled}"/>
+            <div class="checkbox"> <g:checkBox name="enabled" value="${userInstance?.enabled}" /> </div>
         </div>
 
         <div class="separator bottom"></div>
@@ -87,11 +103,11 @@
 
         <label class="col-sm-3 control-label" for="passwordExpired">
             <g:message code="user.passwordExpired.label" default="Password Expired"/>
-
+            
         </label>
 
         <div class="col-sm-8">
-            <g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}"/>
+            <div class="checkbox"> <g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}" /> </div>
         </div>
 
         <div class="separator bottom"></div>

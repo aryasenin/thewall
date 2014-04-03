@@ -1,7 +1,7 @@
 <%=packageName%>
 <% import grails.persistence.Event %>
 
-<% excludedProps = Event.allEvents.toList() << 'id' << 'version' << 'dateCreated' << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
+<% excludedProps = Event.allEvents.toList() << 'id' << 'version'  << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
 persistentPropNames = domainClass.persistentProperties*.name
 boolean hasHibernate = pluginManager?.hasGrailsPlugin('hibernate')
 if (hasHibernate && org.codehaus.groovy.grails.orm.hibernate.cfg.GrailsDomainBinder.getMapping(domainClass)?.identity?.generator == 'assigned') {

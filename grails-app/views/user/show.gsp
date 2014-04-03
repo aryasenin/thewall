@@ -41,6 +41,51 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${userInstance?.dateCreated}">
+				<li class="fieldcontain">
+					<span id="dateCreated-label" class="property-label"><g:message code="user.dateCreated.label" default="Date Created" /></span>
+					
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${userInstance?.dateCreated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.lastUpdated}">
+				<li class="fieldcontain">
+					<span id="lastUpdated-label" class="property-label"><g:message code="user.lastUpdated.label" default="Last Updated" /></span>
+					
+						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${userInstance?.lastUpdated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.userCreated}">
+				<li class="fieldcontain">
+					<span id="userCreated-label" class="property-label"><g:message code="user.userCreated.label" default="User Created" /></span>
+					
+						<span class="property-value" aria-labelledby="userCreated-label"><g:fieldValue bean="${userInstance}" field="userCreated"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.userUpdated}">
+				<li class="fieldcontain">
+					<span id="userUpdated-label" class="property-label"><g:message code="user.userUpdated.label" default="User Updated" /></span>
+					
+						<span class="property-value" aria-labelledby="userUpdated-label"><g:fieldValue bean="${userInstance}" field="userUpdated"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.deleted}">
+				<li class="fieldcontain">
+					<span id="deleted-label" class="property-label"><g:message code="user.deleted.label" default="Deleted" /></span>
+					
+						<span class="property-value" aria-labelledby="deleted-label"><g:formatBoolean boolean="${userInstance?.deleted}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${userInstance?.accountExpired}">
 				<li class="fieldcontain">
 					<span id="accountExpired-label" class="property-label"><g:message code="user.accountExpired.label" default="Account Expired" /></span>

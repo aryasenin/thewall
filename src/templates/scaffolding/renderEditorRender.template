@@ -45,7 +45,7 @@
 
     private renderStringEditor(domainClass, property) {
         if (!cp) {
-            return "<g:textField class=\"form-control\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:textField name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
 			def sb = new StringBuilder("")
             if ("textarea" == cp.widget || (cp.maxSize > 250 && !cp.password && !cp.inList)) {
@@ -71,7 +71,7 @@
 				} else if (cp.email) {
 					sb << '<g:field type="email"'
 				} else {
-					sb << '<g:textField class=\"form-control\"'
+					sb << '<g:textField'
 				}
 				sb << ' name="' << property.name << '"'
 				if (cp.maxSize) sb << ' maxlength="' << cp.maxSize << '"'
@@ -192,14 +192,14 @@
 
     private renderBooleanEditor(domainClass, property) {
         if (!cp) {
-            return "<div class=\"checkbox\"> <g:checkBox name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" /> </div>"
+            return "<g:checkBox name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
-            def sb = new StringBuilder("<div class=\"checkbox\"> <g:checkBox name=\"${property.name}\" ")
+            def sb = new StringBuilder("<g:checkBox name=\"${property.name}\" ")
             if (cp.widget) sb << "widget=\"${cp.widget}\" ";
             cp.attributes.each { k, v ->
                 sb << "${k}=\"${v}\" "
             }
-            sb << "value=\"\${${domainInstance}?.${property.name}}\" /> </div>"
+            sb << "value=\"\${${domainInstance}?.${property.name}}\" />"
             return sb.toString()
         }
     }
@@ -207,18 +207,21 @@
     private renderDateEditor(domainClass, property) {
         def precision = (property.type == Date || property.type == java.sql.Date || property.type == Calendar) ? "day" : "minute";
         if (!cp) {
-            return "<g:jqDatePicker class=\"form-control\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:datePicker name=\"${property.name}\" precision=\"${precision}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
             if (!cp.editable) {
                 return "\${${domainInstance}?.${property.name}?.toString()}"
             } else {
-                def sb = new StringBuilder("<g:jqDatePicker name=\"${property.name}\" ")
+                def sb = new StringBuilder("<g:datePicker name=\"${property.name}\" ")
                 if (cp.format) sb << "format=\"${cp.format}\" "
                 if (cp.widget) sb << "widget=\"${cp.widget}\" "
                 cp.attributes.each { k, v ->
                     sb << "${k}=\"${v}\" "
                 }
-                sb << " value=\"\${${domainInstance}?.${property.name}}\" />"
+                if (!cp.attributes.precision) {
+                    sb << "precision=\"${precision}\" "
+                }
+                sb << " value=\"\${${domainInstance}?.${property.name}}\" ${renderNoSelection(property)} />"
 
                 return sb.toString()
             }
