@@ -203,7 +203,7 @@ environments {
         // log4j configuration en developpement
         log4j = {
             appenders {
-                rollingFile name: "myAppender", maxFileSize: 1024, file: "/tmp/${appName}.log"
+                rollingFile name: "myAppender", maxFileSize: 1024, file: "/tmp/thewall_dev.log"
             }
 
             error 'org.codehaus.groovy.grails.web.servlet',  //  controllers
@@ -220,9 +220,7 @@ environments {
 
             warn myAppender: 'org.mortbay.log'
             info myAppender: 'grails.app'
-            debug myAppender: 'grails.app'
-
-            debug myAppender: 'grails.app.service'
+            //debug myAppender: 'grails.app'
 
         }
     }
@@ -236,7 +234,7 @@ environments {
         // log4j configuration en test
         log4j = {
             appenders {
-                rollingFile name: "myAppender", maxFileSize: 1024, file: "/tmp/${appName}.log"
+                rollingFile name: "myAppender", maxFileSize: 1024, file: "/tmp/thewall_test.log"
             }
 
             error 'org.codehaus.groovy.grails.web.servlet',  //  controllers
@@ -273,7 +271,7 @@ environments {
         // log4j configuration en production
         log4j = {
             appenders {
-                rollingFile name: "myAppender", maxFileSize: 1024, file: "/tmp/${appName}.log"
+                rollingFile name: "myAppender", maxFileSize: 1024, file: "/tmp/thewall_prod.log"
             }
 
             error 'org.codehaus.groovy.grails.web.servlet',  //  controllers

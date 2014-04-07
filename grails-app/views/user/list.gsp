@@ -50,9 +50,9 @@
             <div class="modal-body">
                 <div class="innerAll">
                     <div class="innerLR">
-                        <form class="form-horizontal" role="form">
+                        <div class="form-horizontal">
                             <g:render template="formCreate"></g:render>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,45 +110,44 @@
                 <!-- Table heading -->
                 <thead class="bg-gray">
                 <tr>
-                    
+
                     <th><g:message code="user.username.label" default="Username"/></th>
 
-                    
+
                     <th><g:message code="user.password.label" default="Password"/></th>
 
-                    
+
                     <th><g:message code="user.accountExpired.label" default="Account Expired"/></th>
 
-                    
+
                     <th><g:message code="user.accountLocked.label" default="Account Locked"/></th>
 
-                    
+
                     <th><g:message code="user.enabled.label" default="Enabled"/></th>
 
-                    
+
                     <th><g:message code="user.passwordExpired.label" default="Password Expired"/></th>
 
-                    
                 </tr>
                 </thead>
                 <tbody>
 
                 <g:each in="${userInstanceList}" status="i" var="userInstance">
                     <tr>
-                        
+
                         <td><g:link action="show"
                                     id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
-                        
+
                         <td>${fieldValue(bean: userInstance, field: "password")}</td>
-                        
+
                         <td><g:formatBoolean boolean="${userInstance.accountExpired}"/></td>
-                        
+
                         <td><g:formatBoolean boolean="${userInstance.accountLocked}"/></td>
-                        
+
                         <td><g:formatBoolean boolean="${userInstance.enabled}"/></td>
-                        
+
                         <td><g:formatBoolean boolean="${userInstance.passwordExpired}"/></td>
-                        
+
                     </tr>
                 </g:each>
 

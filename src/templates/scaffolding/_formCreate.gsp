@@ -1,7 +1,8 @@
 <%=packageName%>
 <% import grails.persistence.Event %>
+<g:form action="save" <%=multiPart ? ' enctype="multipart/form-data"' : '' %>>
 
-<% excludedProps = Event.allEvents.toList() << 'id' << 'version'  << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
+<% excludedProps = Event.allEvents.toList() << 'id' << 'version' << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
 persistentPropNames = domainClass.persistentProperties*.name
 boolean hasHibernate = pluginManager?.hasGrailsPlugin('hibernate')
 if (hasHibernate && org.codehaus.groovy.grails.orm.hibernate.cfg.GrailsDomainBinder.getMapping(domainClass)?.identity?.generator == 'assigned') {
@@ -12,7 +13,9 @@ Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as 
 for (p in props) {
     if (p.embedded) {
         def embeddedPropNames = p.component.persistentProperties*.name
-        def embeddedProps = p.component.properties.findAll { embeddedPropNames.contains(it.name) && !excludedProps.contains(it.name) }
+        def embeddedProps = p.component.properties.findAll {
+            embeddedPropNames.contains(it.name) && !excludedProps.contains(it.name)
+        }
         Collections.sort(embeddedProps, comparator.constructors[0].newInstance([p.component] as Object[]))
 %><fieldset class="embedded"><legend><g:message code="${domainClass.propertyName}.${p.name}.label"
                                                 default="${p.naturalName}"/></legend><%
@@ -36,7 +39,8 @@ for (p in props) {
         }
         if (display) { %>
 <div class="form-group">
-    <div class="form-group \${hasErrors(bean: ${propertyName}, field: '${prefix}${p.name}', 'error')} ${required ? 'required' : ''}">
+    <div class="form-group \${hasErrors(bean: ${propertyName}, field: '${prefix}${p.name}', 'error')} ${
+            required ? 'required' : ''}">
 
         <label class="col-sm-3 control-label" for="${prefix}${p.name}">
             <g:message code="${domainClass.propertyName}.${prefix}${p.name}.label" default="${p.naturalName}"/>
@@ -50,5 +54,15 @@ for (p in props) {
         <div class="separator bottom"></div>
     </div>
 </div>
+
 <% }
 } %>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <g:submitButton name="create" class="save" class="btn btn-primary"
+                        value="\${message(code: 'default.button.create.label', default: 'Create')}"/>
+    </div>
+</div>
+
+</g:form>

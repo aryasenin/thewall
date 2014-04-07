@@ -1,8 +1,6 @@
-<%@ page import="com.westeros.thewall.User" %>
+<g:form method="post" action="save">
 
-
-
-<div class="form-group">
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
 
         <label class="col-sm-3 control-label" for="username">
@@ -18,7 +16,8 @@
     </div>
 </div>
 
-<div class="form-group">
+
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
 
         <label class="col-sm-3 control-label" for="password">
@@ -34,7 +33,8 @@
     </div>
 </div>
 
-<div class="form-group">
+
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'dateCreated', 'error')} ">
 
         <label class="col-sm-3 control-label" for="dateCreated">
@@ -50,7 +50,8 @@
     </div>
 </div>
 
-<div class="form-group">
+
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'accountExpired', 'error')} ">
 
         <label class="col-sm-3 control-label" for="accountExpired">
@@ -59,14 +60,17 @@
         </label>
 
         <div class="col-sm-8">
-            <div class="checkbox"> <g:checkBox name="accountExpired" value="${userInstance?.accountExpired}" /> </div>
+            <div class="checkbox"><label class="checkbox-custom"><g:checkBox name="accountExpired"
+                                                                             value="${userInstance?.accountExpired}"/> <i
+                    class="fa fa-fw fa-square-o disabled"></i></label></div>
         </div>
 
         <div class="separator bottom"></div>
     </div>
 </div>
 
-<div class="form-group">
+
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'accountLocked', 'error')} ">
 
         <label class="col-sm-3 control-label" for="accountLocked">
@@ -75,14 +79,17 @@
         </label>
 
         <div class="col-sm-8">
-            <div class="checkbox"> <g:checkBox name="accountLocked" value="${userInstance?.accountLocked}" /> </div>
+            <div class="checkbox"><label class="checkbox-custom"><g:checkBox name="accountLocked"
+                                                                             value="${userInstance?.accountLocked}"/> <i
+                    class="fa fa-fw fa-square-o disabled"></i></label></div>
         </div>
 
         <div class="separator bottom"></div>
     </div>
 </div>
 
-<div class="form-group">
+
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'enabled', 'error')} ">
 
         <label class="col-sm-3 control-label" for="enabled">
@@ -91,14 +98,17 @@
         </label>
 
         <div class="col-sm-8">
-            <div class="checkbox"> <g:checkBox name="enabled" value="${userInstance?.enabled}" /> </div>
+            <div class="checkbox"><label class="checkbox-custom"><g:checkBox name="enabled"
+                                                                             value="${userInstance?.enabled}"/> <i
+                    class="fa fa-fw fa-square-o disabled"></i></label></div>
         </div>
 
         <div class="separator bottom"></div>
     </div>
 </div>
 
-<div class="form-group">
+
+    <div class="form-group">
     <div class="form-group ${hasErrors(bean: userInstance, field: 'passwordExpired', 'error')} ">
 
         <label class="col-sm-3 control-label" for="passwordExpired">
@@ -107,10 +117,21 @@
         </label>
 
         <div class="col-sm-8">
-            <div class="checkbox"> <g:checkBox name="passwordExpired" value="${userInstance?.passwordExpired}" /> </div>
+            <div class="checkbox"><label class="checkbox-custom"><g:checkBox name="passwordExpired"
+                                                                             value="${userInstance?.passwordExpired}"/> <i
+                    class="fa fa-fw fa-square-o disabled"></i></label></div>
         </div>
 
         <div class="separator bottom"></div>
     </div>
 </div>
 
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <g:submitButton name="create" class="save" class="btn btn-primary"
+                            value="${message(code: 'default.button.create.label', default: 'Create')}"/>
+        </div>
+    </div>
+
+</g:form>

@@ -20,6 +20,7 @@
 
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 
+    <g:javascript library="jquery"/>
     <g:layoutHead/>
     <r:layoutResources/>
 
@@ -34,6 +35,7 @@
     <!--[if lt IE 9]>
     <link rel="stylesheet"  href="${resource(dir: 'assets/components/library/bootstrap/css/', file: 'bootstrap.min.css')}" /><![endif]-->
     <link rel="stylesheet" href="${resource(dir: 'assets/css/admin/', file: 'module.admin.stylesheet-complete.min.css')}"/>
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'thewall.css')}"/>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -41,8 +43,14 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
+    <g:javascript>
+        jQuery.noConflict();
+        // Code that uses other library's $ can follow here.
+    </g:javascript>
+
 
     <script src="${resource(dir: 'assets/components/plugins/ajaxify/', file: 'script.min.js?v=v1.0.2&sv=v0.0.1')}"></script>
+
 
     <script>var App = {};</script>
 
@@ -80,7 +88,8 @@
                 '${resource(dir: 'assets/components/plugins/less-js/', file: 'less.min.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/modules/admin/charts/flot/assets/lib/', file: 'excanvas.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/plugins/browser/ie/', file: 'ie.prototype.polyfill.js?v=v1.0.2&sv=v0.0.1')}',
-                '${resource(dir: 'assets/components/plugins/jquery-ui-touch-punch/', file: 'jquery.ui.touch-punch.min.js?v=v1.0.2&sv=v0.0.1')}'
+                '${resource(dir: 'assets/components/plugins/jquery-ui-touch-punch/', file: 'jquery.ui.touch-punch.min.js?v=v1.0.2&sv=v0.0.1')}',
+                '${resource(dir: 'assets/components/common/forms/elements/bootstrap-datepicker/assets/lib/js/', file: 'bootstrap-datepicker.js?v=v1.0.2&sv=v0.0.1')}'
             ],
 
             /* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
@@ -93,7 +102,8 @@
                 '${resource(dir: 'assets/components/common/tables/classic/assets/js/', file: 'tables-classic.init.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/core/js/', file: 'sidebar.main.init.js?v=v1.0.2')}',
                 '${resource(dir: 'assets/components/core/js/', file: 'sidebar.discover.init.js?v=v1.0.2')}',
-                '${resource(dir: 'assets/components/core/js/', file: 'core.init.js?v=v1.0.2')}'
+                '${resource(dir: 'assets/components/core/js/', file: 'core.init.js?v=v1.0.2')}',
+                '${resource(dir: 'assets/components/common/forms/elements/bootstrap-datepicker/assets/custom/js/', file: 'bootstrap-datepicker.init.js?v=v1.0.2&sv=v0.0.1')}'
             ]
 
         };

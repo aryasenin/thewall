@@ -1,17 +1,17 @@
 <%  if (property.type == Boolean || property.type == boolean)
-        out << renderBooleanEditor(domainClass, property)
-    else if (property.type && Number.isAssignableFrom(property.type) || (property.type?.isPrimitive() && property.type != boolean))
-        out << renderNumberEditor(domainClass, property)
-    else if (property.type == String)
-        out << renderStringEditor(domainClass, property)
-    else if (property.type == Date || property.type == java.sql.Date || property.type == java.sql.Time || property.type == Calendar)
-        out << renderDateEditor(domainClass, property)
-    else if (property.type == URL)
-        out << renderStringEditor(domainClass, property)
-    else if (property.type && property.isEnum())
-        out << renderEnumEditor(domainClass, property)
-    else if (property.type == TimeZone)
-        out << renderSelectTypeEditor("timeZone", domainClass, property)
+out << renderBooleanEditor(domainClass, property)
+else if (property.type && Number.isAssignableFrom(property.type) || (property.type?.isPrimitive() && property.type != boolean))
+out << renderNumberEditor(domainClass, property)
+else if (property.type == String)
+out << renderStringEditor(domainClass, property)
+else if (property.type == Date || property.type == java.sql.Date || property.type == java.sql.Time || property.type == Calendar)
+out << renderDateEditor(domainClass, property)
+else if (property.type == URL)
+out << renderStringEditor(domainClass, property)
+else if (property.type && property.isEnum())
+out << renderEnumEditor(domainClass, property)
+else if (property.type == TimeZone)
+out << renderSelectTypeEditor("timeZone", domainClass, property)
     else if (property.type == Locale)
         out << renderSelectTypeEditor("locale", domainClass, property)
     else if (property.type == Currency)
@@ -46,7 +46,7 @@
     private renderStringEditor(domainClass, property) {
         if (!cp) {
             return "<g:textField class=\"form-control\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
-        } else {
+} else {
 			def sb = new StringBuilder("")
             if ("textarea" == cp.widget || (cp.maxSize > 250 && !cp.password && !cp.inList)) {
                 sb << '<g:textArea name="' << property.name << '"'
@@ -83,13 +83,13 @@
 			}
 			sb as String
         }
-    }
+}
 
-    private renderByteArrayEditor(domainClass, property) {
+private renderByteArrayEditor(domainClass, property) {
         return "<input type=\"file\" id=\"${property.name}\" name=\"${property.name}\" />"
     }
 
-    private renderManyToOne(domainClass,property) {
+private renderManyToOne(domainClass,property) {
         if (property.association) {
 			def sb = new StringBuilder()
             sb << '<g:select'
@@ -107,7 +107,7 @@
         }
     }
 
-    private renderManyToMany(domainClass, property) {
+private renderManyToMany(domainClass, property) {
         def cls = property.referencedDomainClass?.clazz
         if (cls == null) {
             if (property.type instanceof Collection) {
@@ -132,7 +132,7 @@
 
     }
 
-    private renderOneToMany(domainClass, property) {
+private renderOneToMany(domainClass, property) {
         def sw = new StringWriter()
         def pw = new PrintWriter(sw)
         pw.println()
@@ -147,7 +147,7 @@
         return sw.toString()
     }
 
-    private renderNumberEditor(domainClass, property) {
+private renderNumberEditor(domainClass, property) {
         if (!cp) {
             if (property.type == Byte) {
                 return "<g:select name=\"${property.name}\" from=\"\${-128..127}\" class=\"range\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\" />"
@@ -190,21 +190,21 @@
         }
      }
 
-    private renderBooleanEditor(domainClass, property) {
+private renderBooleanEditor(domainClass, property) {
         if (!cp) {
-            return "<div class=\"checkbox\"> <g:checkBox name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" /> </div>"
+            return "<div class=\"checkbox\"> <label class=\"checkbox-custom\"> <g:checkBox name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" /> <i class=\"fa fa-fw fa-square-o disabled\"></i> </label> </div>"
         } else {
-            def sb = new StringBuilder("<div class=\"checkbox\"> <g:checkBox name=\"${property.name}\" ")
+            def sb = new StringBuilder("<div class=\"checkbox\">  <label class=\"checkbox-custom\"> <g:checkBox name=\"${property.name}\" ")
             if (cp.widget) sb << "widget=\"${cp.widget}\" ";
             cp.attributes.each { k, v ->
                 sb << "${k}=\"${v}\" "
             }
-            sb << "value=\"\${${domainInstance}?.${property.name}}\" /> </div>"
+            sb << "value=\"\${${domainInstance}?.${property.name}}\" /> <i class=\"fa fa-fw fa-square-o disabled\"></i> </label> </div>"
             return sb.toString()
         }
     }
 
-    private renderDateEditor(domainClass, property) {
+private renderDateEditor(domainClass, property) {
         def precision = (property.type == Date || property.type == java.sql.Date || property.type == Calendar) ? "day" : "minute";
         if (!cp) {
             return "<g:jqDatePicker class=\"form-control\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
@@ -225,7 +225,7 @@
         }
     }
 
-    private renderSelectTypeEditor(type, domainClass,property) {
+private renderSelectTypeEditor(type, domainClass,property) {
         if (!cp) {
             return "<g:${type}Select name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
@@ -239,7 +239,7 @@
         }
     }
 
-    private renderNoSelection(property) {
+private renderNoSelection(property) {
         if (isOptional()) {
             if (property.manyToOne || property.oneToOne) {
                 return " noSelection=\"['null': '']\""
@@ -252,11 +252,11 @@
         return ""
     }
 
-	private boolean isRequired() {
+private boolean isRequired() {
 		!isOptional()
 	}
 
-	private boolean isOptional() {
+private boolean isOptional() {
 	    if (!cp) {
 	        return false
 	    }

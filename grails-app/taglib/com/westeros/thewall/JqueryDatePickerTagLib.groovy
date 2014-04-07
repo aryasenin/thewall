@@ -36,7 +36,7 @@ class JqueryDatePickerTagLib {
         //Create date text field and supporting hidden text fields need by grails
         out.println "<div class=\"input-group date\" id=\"datepicker2\">"
         if (attrs.required) {
-            out.println "<input type=\"text\" size=\"50%\" class=\"form-control datepicker \" placeholder=\"dd/MM/yyyy\" required=\" \" name=\"${name}\" value=\"${value}\" id=\"${id}\" />"
+            out.println "<input type=\"text\" size=\"50%\" class=\"form-control \" placeholder=\"dd/MM/yyyy\" required=\" \" name=\"${name}\" value=\"${value}\" id=\"${id}\" />"
         } else {
             out.println "<input type=\"text\" size=\"50%\" class=\"form-control\" placeholder=\"dd/MM/yyyy\" name=\"${name}\" value=\"${value}\" id=\"${id}\" />"
         }
@@ -48,52 +48,7 @@ class JqueryDatePickerTagLib {
         out.println "<input type=\"hidden\" size=\"50%\" name=\"${name}_minute\" value=\"${minute}\" id=\"${id}_minute\" />"
         out.println "<input type=\"hidden\" size=\"50%\" name=\"${name}_seconde\" value=\"${seconde}\" id=\"${id}_seconde\" />"
 
-        //Code to parse selected date into hidden fields required by grails
-        out.println "<script type=\"text/javascript\"> \$(document).ready(function(){"
-        out.println "\$(\"#${name}\").datepicker({"
-        out.println "buttonImage: '${resource(dir: 'images', file: 'calendar-1.png')}',"
-        out.println "onClose: function(dateText, inst) {"
-        out.println "var dateStr = dateText.split('/') ;"
-        out.println "var jour = dateStr[0];"
-        out.println "var mois = dateStr[1];"
-        out.println "var annee = dateStr[2];"
-        out.println "if (jour<01 || jour>31){"
-        //out.println "alert(\"Le jour choisi : \" + jour + \", n'est pas un jour du mois\");"
-        out.println "\$(\"#${name}\").attr(\"value\",'');"
-        out.println "\$(\"#${name}_month\").attr(\"value\",'');"
-        out.println "\$(\"#${name}_day\").attr(\"value\",'');"
-        out.println "\$(\"#${name}_year\").attr(\"value\",'');"
-        out.println "}else if (mois<01 || mois>12){"
-        //out.println "alert(\"Le mois choisi : \" + mois + \", n'est pas un mois de l'année\");"
-        out.println "\$(\"#${name}\").attr(\"value\",'');"
-        out.println "\$(\"#${name}_month\").attr(\"value\",'');"
-        out.println "\$(\"#${name}_day\").attr(\"value\",'');"
-        out.println "\$(\"#${name}_year\").attr(\"value\",'');"
-        out.println "}else{"
-        out.println "\$(\"#${name}_month\").attr(\"value\",new Date(annee,mois,jour).getMonth());"
-        out.println "\$(\"#${name}_day\").attr(\"value\",new Date(annee,mois,jour).getDate());"
-        out.println "\$(\"#${name}_year\").attr(\"value\",new Date(annee,mois,jour).getFullYear());"
-        out.println "\$(\"#${name}_hour\").attr(\"value\",new Date().getHours());"
-        out.println "\$(\"#${name}_minute\").attr(\"value\",new Date().getMinutes());"
-        out.println "\$(\"#${name}_seconde\").attr(\"value\",new Date().getSeconds());"
-        out.println "}}"
 
-        //If you want to customize using the jQuery UI events add an if block an attribute as follows
-        if (minDate != null) {
-            out.println ","
-            out.println "minDate: ${minDate}"
-        }
-
-        if (showDay != null) {
-            out.println ","
-            out.println "beforeShowDay: function(date){"
-            out.println "var day = date.getDay();"
-            out.println "return [day == ${showDay},\"\"];"
-            out.println "}"
-        }
-
-        out.println "});"
-        out.println "})</script>"
 
     }
 
