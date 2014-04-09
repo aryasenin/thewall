@@ -75,8 +75,8 @@
             plugins: [
                 '${resource(dir: 'assets/components/plugins/nicescroll/', file: 'jquery.nicescroll.min.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/plugins/breakpoints/', file: 'breakpoints.js?v=v1.0.2&sv=v0.0.1')}',
-                '${resource(dir: 'assets/components/plugins/ajaxify/', file: 'davis.min.js?v=v1.0.2&sv=v0.0.1')}',
-                '${resource(dir: 'assets/components/plugins/ajaxify/', file: 'jquery.lazyjaxdavis.min.js?v=v1.0.2&sv=v0.0.1')}',
+                %{--'${resource(dir: 'assets/components/plugins/ajaxify/', file: 'davis.min.js?v=v1.0.2&sv=v0.0.1')}',--}%
+                %{--'${resource(dir: 'assets/components/plugins/ajaxify/', file: 'jquery.lazyjaxdavis.min.js?v=v1.0.2&sv=v0.0.1')}',--}%
                 '${resource(dir: 'assets/components/plugins/preload/pace/', file: 'pace.min.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/lib/extras/TableTools/media/js/', file: 'TableTools.min.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/lib/extras/ColVis/media/js/', file: 'ColVis.min.js?v=v1.0.2&sv=v0.0.1')}',
@@ -94,7 +94,7 @@
 
             /* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
             bundle: [
-                '${resource(dir: 'assets/components/plugins/ajaxify/', file: 'ajaxify.init.js?v=v1.0.2&sv=v0.0.1')}',
+                %{--'${resource(dir: 'assets/components/plugins/ajaxify/', file: 'ajaxify.init.js?v=v1.0.2&sv=v0.0.1')}',--}%
                 '${resource(dir: 'assets/components/plugins/preload/pace/', file: 'preload.pace.init.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/core/js/', file: 'animations.init.js?v=v1.0.2')}',
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/custom/js/', file: 'datatables.init.js?v=v1.0.2&sv=v0.0.1')}',
