@@ -182,6 +182,7 @@ private renderNumberEditor(domainClass, property) {
 				sb << renderNoSelection(property)
 				sb << '/>'
             } else if (cp.inList) {
+            
                 sb << '<g:select style=\"width: 100%;\" id=\"select2_1\"  name="' << property.name << '"'
  				sb << ' from="${' << "${domainInstance}.constraints.${property.name}.inList" << '}"'
 				if (isRequired()) sb << ' required=""'
