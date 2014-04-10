@@ -1,5 +1,4 @@
-
-<%@ page import="com.westeros.thewall.User" %>
+<%@ page import="com.westeros.thewall.UserRole" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-discover"> <![endif]-->
@@ -12,9 +11,9 @@
 <!--[if !IE]><!-->
 <html class="sidebar sidebar-discover"><!-- <![endif]-->
 <head>
-    <title><g:message code="user.list" default="Les Users"/></title>
+    <title><g:message code="userRole.list" default="Les UserRoles"/></title>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
+    <g:set var="entityName" value="${message(code: 'userRole.label', default: 'UserRole')}"/>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -26,13 +25,13 @@
 
 <body>
 
-<h1><g:message code="user.list" default="Les Users"/>
-    <a href="#modal-new-user" data-toggle="modal" style="float:right; background:#FFF"
-       class="btn btn-primary btn-stroke"><g:message code="user.add" default="Ajouter"/></a>
+<h1><g:message code="userRole.list" default="Les UserRoles"/>
+    <a href="#modal-new-userRole" data-toggle="modal" style="float:right; background:#FFF"
+       class="btn btn-primary btn-stroke"><g:message code="userRole.add" default="Ajouter"/></a>
 </h1>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-new-user">
+<div class="modal fade" id="modal-new-userRole">
 
     <div class="modal-dialog">
         <div class="modal-content">
@@ -41,8 +40,8 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-                <h3 class="modal-title"><g:message code="user.new"
-                                                   default="Nouveau User"/></h3>
+                <h3 class="modal-title"><g:message code="userRole.new"
+                                                   default="Nouveau UserRole"/></h3>
             </div>
             <!-- // Modal heading END -->
 
@@ -111,42 +110,22 @@
                 <thead class="bg-gray">
                 <tr>
 
-                    <th><g:message code="user.username.label" default="Username"/></th>
+                    <th><g:message code="userRole.role.label" default="Role"/></th>
 
 
-                    <th><g:message code="user.password.label" default="Password"/></th>
-
-
-                    <th><g:message code="user.accountExpired.label" default="Account Expired"/></th>
-
-
-                    <th><g:message code="user.accountLocked.label" default="Account Locked"/></th>
-
-
-                    <th><g:message code="user.enabled.label" default="Enabled"/></th>
-
-
-                    <th><g:message code="user.passwordExpired.label" default="Password Expired"/></th>
+                    <th><g:message code="userRole.user.label" default="User"/></th>
 
                 </tr>
                 </thead>
                 <tbody>
 
-                <g:each in="${userInstanceList}" status="i" var="userInstance">
+                <g:each in="${userRoleInstanceList}" status="i" var="userRoleInstance">
                     <tr>
 
                         <td><g:link action="show"
-                                    id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
+                                    id="${userRoleInstance.id}">${fieldValue(bean: userRoleInstance, field: "role")}</g:link></td>
 
-                        <td>${fieldValue(bean: userInstance, field: "password")}</td>
-
-                        <td><g:formatBoolean boolean="${userInstance.accountExpired}"/></td>
-
-                        <td><g:formatBoolean boolean="${userInstance.accountLocked}"/></td>
-
-                        <td><g:formatBoolean boolean="${userInstance.enabled}"/></td>
-
-                        <td><g:formatBoolean boolean="${userInstance.passwordExpired}"/></td>
+                        <td>${fieldValue(bean: userRoleInstance, field: "user")}</td>
 
                     </tr>
                 </g:each>

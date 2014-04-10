@@ -89,3 +89,20 @@
             class="fa fa-fw fa-square-o disabled"></i></label></div>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'photo', 'error')} required">
+    <label for="photo">
+        <g:message code="user.photo.label" default="Photo"/>
+        <span class="required-indicator">*</span>
+    </label>
+
+    <div class="fileupload fileupload-new margin-none" data-provides="fileupload"><div class="input-group"><div
+            class="form-control col-md-3"><i class="fa fa-file fileupload-exists"></i><span
+                class="fileupload-preview"></span></div><span class="input-group-btn"><span
+            class="btn btn-default btn-file"><span class="fileupload-new">Fichier</span><span
+                class="fileupload-exists">Changer</span> <input type="file" class="margin-none" id="photo"
+                                                                name="photo"/></span><a href="#"
+                                                                                        class="btn fileupload-exists"
+                                                                                        data-dismiss="fileupload">Supp.</a>
+    </span></div></div>
+</div>
+

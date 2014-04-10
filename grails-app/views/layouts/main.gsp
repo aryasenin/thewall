@@ -51,7 +51,6 @@
 
     <script src="${resource(dir: 'assets/components/plugins/ajaxify/', file: 'script.min.js?v=v1.0.2&sv=v0.0.1')}"></script>
 
-
     <script>var App = {};</script>
 
     <script data-id="App.Scripts">
@@ -83,13 +82,16 @@
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/custom/js/', file: 'DT_bootstrap.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/forms/elements/fuelux-checkbox/', file: 'fuelux-checkbox.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/forms/elements/bootstrap-select/assets/lib/js/', file: 'bootstrap-select.js?v=v1.0.2&sv=v0.0.1')}',
+                '${resource(dir: 'assets/components/common/forms/elements/select2/assets/lib/js/', file: 'select2.js?v=v1.0.2&sv=v0.0.1')}',
+                '${resource(dir: 'assets/components/common/forms/elements/multiselect/assets/lib/js/', file: 'jquery.multi-select.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/lib/extras/FixedHeader/', file: 'FixedHeader.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/lib/extras/ColReorder/media/js/', file: 'ColReorder.min.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/plugins/less-js/', file: 'less.min.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/modules/admin/charts/flot/assets/lib/', file: 'excanvas.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/plugins/browser/ie/', file: 'ie.prototype.polyfill.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/plugins/jquery-ui-touch-punch/', file: 'jquery.ui.touch-punch.min.js?v=v1.0.2&sv=v0.0.1')}',
-                '${resource(dir: 'assets/components/common/forms/elements/bootstrap-datepicker/assets/lib/js/', file: 'bootstrap-datepicker.js?v=v1.0.2&sv=v0.0.1')}'
+                '${resource(dir: 'assets/components/common/forms/elements/bootstrap-datepicker/assets/lib/js/', file: 'bootstrap-datepicker.js?v=v1.0.2&sv=v0.0.1')}',
+                '${resource(dir: 'assets/components/common/forms/elements/jasny-fileupload/assets/js/', file: 'bootstrap-fileupload.js?v=v1.0.2&sv=v0.0.1')}'
             ],
 
             /* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
@@ -99,6 +101,8 @@
                 '${resource(dir: 'assets/components/core/js/', file: 'animations.init.js?v=v1.0.2')}',
                 '${resource(dir: 'assets/components/common/tables/datatables/assets/custom/js/', file: 'datatables.init.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/forms/elements/bootstrap-select/assets/custom/js/', file: 'bootstrap-select.init.js?v=v1.0.2&sv=v0.0.1')}',
+                '${resource(dir: 'assets/components/common/forms/elements/select2/assets/custom/js/', file: 'select2.init.js?v=v1.0.2&sv=v0.0.1')}',
+                '${resource(dir: 'assets/components/common/forms/elements/multiselect/assets/custom/js/', file: 'multiselect.init.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/common/tables/classic/assets/js/', file: 'tables-classic.init.js?v=v1.0.2&sv=v0.0.1')}',
                 '${resource(dir: 'assets/components/core/js/', file: 'sidebar.main.init.js?v=v1.0.2')}',
                 '${resource(dir: 'assets/components/core/js/', file: 'sidebar.discover.init.js?v=v1.0.2')}',
