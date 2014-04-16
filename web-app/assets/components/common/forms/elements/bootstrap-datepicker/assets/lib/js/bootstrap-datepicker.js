@@ -264,9 +264,9 @@
                         // Clicked outside the datepicker, hide it
                         if (!(
                             this.element.is(e.target) ||
-                            this.element.find(e.target).length ||
-                            this.picker.is(e.target) ||
-                            this.picker.find(e.target).length
+                                this.element.find(e.target).length ||
+                                this.picker.is(e.target) ||
+                                this.picker.find(e.target).length
                             )) {
                             this.hide();
                         }
@@ -325,10 +325,10 @@
 
             if (
                 this.o.forceParse &&
-                (
-                    this.isInput && this.element.val() ||
-                    this.hasInput && this.element.find('input').val()
-                    )
+                    (
+                        this.isInput && this.element.val() ||
+                            this.hasInput && this.element.find('input').val()
+                        )
                 )
                 this.setValue();
             this._trigger('hide');
@@ -429,7 +429,7 @@
                 top = offset.top;
 
             this.picker.removeClass(
-                    'datepicker-orient-top datepicker-orient-bottom ' +
+                'datepicker-orient-top datepicker-orient-bottom ' +
                     'datepicker-orient-right datepicker-orient-left'
             );
 
@@ -1154,16 +1154,16 @@
     };
 
     var defaults = $.fn.datepicker.defaults = {
-        autoclose: false,
+//		autoclose: true,
         beforeShowDay: $.noop,
         calendarWeeks: false,
         clearBtn: false,
         daysOfWeekDisabled: [],
         endDate: Infinity,
         forceParse: true,
-        format: 'dd/MM/yyyy',
+        format: 'mm/dd/yyyy',
         keyboardNavigation: true,
-        language: 'fr',
+        language: 'en',
         minViewMode: 0,
         orientation: "auto",
         rtl: false,
@@ -1171,7 +1171,7 @@
         startView: 0,
         todayBtn: false,
         todayHighlight: false,
-        weekStart: 1
+        weekStart: 0
     };
     var locale_opts = $.fn.datepicker.locale_opts = [
         'format',
@@ -1183,7 +1183,7 @@
         en: {
             days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-            daysMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"],
+            daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
             today: "Today",

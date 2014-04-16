@@ -12,6 +12,13 @@ class UserController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+
+        if (UserRole?.modelePere) {
+            log.info("model UserRole= " + UserRole?.modelePere)
+        }
+        if (User?.modelePere) {
+            log.info("model User= " + User?.modelePere)
+        }
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
 

@@ -1,4 +1,3 @@
-
 <%@ page import="com.westeros.thewall.User" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -50,9 +49,9 @@
             <div class="modal-body">
                 <div class="innerAll">
                     <div class="innerLR">
-                        <form class="form-horizontal" role="form">
+                        <div class="form-horizontal" role="form">
                             <g:render template="formCreate"></g:render>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

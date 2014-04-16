@@ -12,7 +12,7 @@
 
             <div class="col-sm-8">
                 <g:textField class="form-control" name="username" required="" value="${userInstance?.username}"/>
-        </div>
+            </div>
 
             <div class="separator bottom"></div>
         </div>
@@ -29,7 +29,7 @@
 
             <div class="col-sm-8">
                 <g:textField class="form-control" name="password" required="" value="${userInstance?.password}"/>
-        </div>
+            </div>
 
             <div class="separator bottom"></div>
         </div>
@@ -46,7 +46,12 @@
 
             <div class="col-sm-8">
                 <g:jqDatePicker name="dateCreated" value="${userInstance?.dateCreated}"/>
-        </div>
+
+                %{--<div class="input-group date" id="datepicker2">--}%
+                %{--<input class="form-control" type="text" value="14 February 2013"/>--}%
+                %{--<span class="input-group-addon"><i class="fa fa-th"></i></span>--}%
+                %{--</div>--}%
+            </div>
 
             <div class="separator bottom"></div>
         </div>
@@ -158,7 +163,7 @@
         <div class="col-sm-offset-2 col-sm-10">
             <g:submitButton name="create" class="save" class="btn btn-primary"
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>
-    </div>
+        </div>
     </div>
 
 </g:form>
