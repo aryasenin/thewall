@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
 
-    //static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -12,13 +12,6 @@ class UserController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-
-        if (UserRole?.modelePere) {
-            log.info("model UserRole= " + UserRole?.modelePere)
-        }
-        if (User?.modelePere) {
-            log.info("model User= " + User?.modelePere)
-        }
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
 
