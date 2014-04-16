@@ -1,39 +1,111 @@
+<% import grails.persistence.Event %>
 <%=packageName%>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#create-${domainClass.propertyName}" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="\${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="create-${domainClass.propertyName}" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
-			<g:if test="\${flash.message}">
-			<div class="message" role="status">\${flash.message}</div>
-			</g:if>
-			<g:hasErrors bean="\${${propertyName}}">
-			<ul class="errors" role="alert">
-				<g:eachError bean="\${${propertyName}}" var="error">
-				<li <g:if test="\${error in org.springframework.validation.FieldError}">data-field-id="\${error.field}"</g:if>><g:message error="\${error}"/></li>
-				</g:eachError>
-			</ul>
-			</g:hasErrors>
-			<g:form action="save" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="\${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+<!--[if lt IE 7]>
+<html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-discover"> <![endif]-->
+<!--[if IE 7]>
+<html class="ie lt-ie9 lt-ie8 sidebar sidebar-discover"> <![endif]-->
+<!--[if IE 8]>
+<html class="ie lt-ie9 sidebar sidebar-discover"> <![endif]-->
+<!--[if gt IE 8]>
+<html class="ie sidebar sidebar-discover"> <![endif]-->
+<!--[if !IE]><!-->
+<html class="sidebar sidebar-discover"><!-- <![endif]-->
+<head>
+    <title><g:message code="${domainClass.propertyName}.create" default="Création ${className}s"/></title>
+    <meta name="layout" content="main">
+    <g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}"/>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+</head>
+
+<body>
+
+<h1><g:message code="${domainClass.propertyName}.show" default="Création ${className}"/></h1>
+
+<div class="innerLR">
+    <!-- Widget -->
+    <div class="widget widget-body-white widget-heading-simple">
+        <g:if test="\${flash.message}">
+            <!-- Alert -->
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.sucessfully.message" default="Succès : "/></strong> \${flash.message}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+
+        <g:if test="\${flash.error}">
+            <!-- Alert -->
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.error.message" default="Erreur : "/></strong> \${flash.error}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+
+        <g:hasErrors bean="\${${propertyName}}">
+            <g:eachError bean="\${${propertyName}}" var="error">
+                <!-- Alert -->
+                <div class="alert alert-danger"
+                     <g:if test="\${error in org.springframework.validation.FieldError}">data-field-id="\${error.field}"</g:if>>
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong><g:message code="default.error.message" default="Erreur : "/></strong> <g:message
+                        error="\${error}"/>
+                </div>
+                <!-- // Alert END -->
+            </g:eachError>
+        </g:hasErrors>
+
+        <g:if test="\${flash.warning}">
+            <!-- Alert -->
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.warning.message" default="Attention : "/></strong> \${flash.warning}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+
+        <g:if test="\${flash.info}">
+            <!-- Alert -->
+            <div class="alert alert-primary">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.information.message"
+                                   default="Informations : "/></strong> \${flash.info}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+        <div class="widget">
+            <div class="widget-head">
+                <h4 class="heading">Informations de ${className}</h4>
+            </div>
+
+            <div class="widget-body">
+
+                <div class="row">
+
+                    <g:form action="save" <%=multiPart ? ' enctype="multipart/form-data"' : '' %>>
+                    <g:render template="form"/>
+                    <div class="separator"></div>
+                    <!-- Form actions -->
+                    <div class="form-actions">
+                        <g:submitButton name="create" class="btn btn-primary"
+                                        value="\${message(code: 'default.button.create.label', default: 'Créer')}"/>
+                        <g:submitButton name="create" class="btn btn-default"
+                                        value="\${message(code: 'default.button.cancel.label', default: 'Annuler')}"/>
+                    </div>
+                    <!-- // Form actions END -->
+                    </g:form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
 </html>

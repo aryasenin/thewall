@@ -55,5 +55,8 @@ class UserRole implements Serializable {
         version false
     }
 
-    static modelePere = "user"
+    static constraints = {
+        user(unique: ["user", "role"])
+        role()
+    }
 }

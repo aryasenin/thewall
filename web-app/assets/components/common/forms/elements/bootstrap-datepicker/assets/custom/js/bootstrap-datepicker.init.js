@@ -12,7 +12,9 @@ $(function () {
 
     // component
     $('#datepicker2').bdatepicker({
-        format: "dd MM yyyy",
+        format: 'dd/MM/yyyy',
+        autoclose: true,
+        constrainInput: true,
         startDate: "2013-02-14"
     });
 

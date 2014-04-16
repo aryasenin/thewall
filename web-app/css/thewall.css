@@ -1,3 +1,30 @@
 .datepicker {
     z-index: 999999999 !important;
 }
+
+.disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #a7a7a7;
+    font-size: 13px;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -webkit-border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.disabled:hover {
+    background-color: #F7F7F7;
+}
+
+.padTop {
+    padding-top: 10px;
+}
+
+.padBot {
+    padding-bottom: 10px;
+}

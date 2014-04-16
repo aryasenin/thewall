@@ -7,7 +7,6 @@ class User {
     String username
     String password
     boolean enabled
-    byte[] photo
     boolean accountExpired
     boolean accountLocked
     boolean passwordExpired

@@ -1,6 +1,6 @@
 <%@ page import="com.westeros.thewall.User" %>
 
-<g:form action="save" enctype="multipart/form-data">
+<g:form action="save">
 
     <div class="form-group">
         <div class="form-group ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
@@ -46,11 +46,6 @@
 
             <div class="col-sm-8">
                 <g:jqDatePicker name="dateCreated" value="${userInstance?.dateCreated}"/>
-
-                %{--<div class="input-group date" id="datepicker2">--}%
-                %{--<input class="form-control" type="text" value="14 February 2013"/>--}%
-                %{--<span class="input-group-addon"><i class="fa fa-th"></i></span>--}%
-                %{--</div>--}%
             </div>
 
             <div class="separator bottom"></div>
@@ -135,33 +130,8 @@
 
 
     <div class="form-group">
-        <div class="form-group ${hasErrors(bean: userInstance, field: 'photo', 'error')} required">
-
-            <label class="col-sm-3 control-label" for="photo">
-                <g:message code="user.photo.label" default="Photo"/>
-                <span class="required-indicator">*</span>
-            </label>
-
-            <div class="col-sm-8">
-                <div class="fileupload fileupload-new margin-none" data-provides="fileupload"><div
-                        class="input-group"><div class="form-control col-md-3"><i
-                            class="fa fa-file fileupload-exists"></i><span class="fileupload-preview"></span></div><span
-                            class="input-group-btn"><span class="btn btn-default btn-file"><span
-                                class="fileupload-new">Fichier</span><span
-                                class="fileupload-exists">Changer</span> <input type="file" class="margin-none"
-                                                                                id="photo" name="photo"/></span><a
-                                href="#" class="btn fileupload-exists" data-dismiss="fileupload">Supp.</a></span></div>
-                </div>
-            </div>
-
-            <div class="separator bottom"></div>
-        </div>
-    </div>
-
-
-    <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <g:submitButton name="create" class="save" class="btn btn-primary"
+            <g:submitButton name="create" class="btn btn-primary"
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>
         </div>
     </div>

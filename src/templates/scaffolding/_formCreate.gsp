@@ -60,7 +60,7 @@ for (p in props) {
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-        <g:submitButton name="create" class="save" class="btn btn-primary"
+        <g:submitButton name="create" class="btn btn-primary"
                         value="\${message(code: 'default.button.create.label', default: 'Create')}"/>
     </div>
 </div>
