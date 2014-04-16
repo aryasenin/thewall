@@ -49,9 +49,9 @@
             <div class="modal-body">
                 <div class="innerAll">
                     <div class="innerLR">
-                        <form class="form-horizontal" role="form">
+                        <div class="form-horizontal" role="form">
                             <g:render template="formCreate"></g:render>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,10 +110,10 @@
                 <thead class="bg-gray">
                 <tr>
 
-                    <th><g:message code="userRole.role.label" default="Role"/></th>
-
-
                     <th><g:message code="userRole.user.label" default="User"/></th>
+
+
+                    <th><g:message code="userRole.role.label" default="Role"/></th>
 
                 </tr>
                 </thead>
@@ -123,9 +123,9 @@
                     <tr>
 
                         <td><g:link action="show"
-                                    id="${userRoleInstance.id}">${fieldValue(bean: userRoleInstance, field: "role")}</g:link></td>
+                                    id="${userRoleInstance.id}">${fieldValue(bean: userRoleInstance, field: "user")}</g:link></td>
 
-                        <td>${fieldValue(bean: userRoleInstance, field: "user")}</td>
+                        <td>${fieldValue(bean: userRoleInstance, field: "role")}</td>
 
                     </tr>
                 </g:each>

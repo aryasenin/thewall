@@ -27,17 +27,6 @@
     </g:if>
     <ol class="property-list userRole">
 
-        <g:if test="${userRoleInstance?.role}">
-            <li class="fieldcontain">
-                <span id="role-label" class="property-label"><g:message code="userRole.role.label"
-                                                                        default="Role"/></span>
-
-                <span class="property-value" aria-labelledby="role-label"><g:link controller="role" action="show"
-                                                                                  id="${userRoleInstance?.role?.id}">${userRoleInstance?.role?.encodeAsHTML()}</g:link></span>
-
-            </li>
-        </g:if>
-
         <g:if test="${userRoleInstance?.user}">
             <li class="fieldcontain">
                 <span id="user-label" class="property-label"><g:message code="userRole.user.label"
@@ -45,6 +34,17 @@
 
                 <span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show"
                                                                                   id="${userRoleInstance?.user?.id}">${userRoleInstance?.user?.encodeAsHTML()}</g:link></span>
+
+            </li>
+        </g:if>
+
+        <g:if test="${userRoleInstance?.role}">
+            <li class="fieldcontain">
+                <span id="role-label" class="property-label"><g:message code="userRole.role.label"
+                                                                        default="Role"/></span>
+
+                <span class="property-value" aria-labelledby="role-label"><g:link controller="role" action="show"
+                                                                                  id="${userRoleInstance?.role?.id}">${userRoleInstance?.role?.encodeAsHTML()}</g:link></span>
 
             </li>
         </g:if>

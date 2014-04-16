@@ -2,15 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: userRoleInstance, field: 'role', 'error')} required">
-    <label for="role">
-        <g:message code="userRole.role.label" default="Role"/>
-        <span class="required-indicator">*</span>
-    </label>
-    <g:select style="width: 100%;" id="select2_1" name="role.id" from="${com.westeros.thewall.Role.list()}"
-              optionKey="id" required="" value="${userRoleInstance?.role?.id}" class="many-to-one"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: userRoleInstance, field: 'user', 'error')} required">
     <label for="user">
         <g:message code="userRole.user.label" default="User"/>
@@ -18,5 +9,14 @@
     </label>
     <g:select style="width: 100%;" id="select2_1" name="user.id" from="${com.westeros.thewall.User.list()}"
               optionKey="id" required="" value="${userRoleInstance?.user?.id}" class="many-to-one"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userRoleInstance, field: 'role', 'error')} required">
+    <label for="role">
+        <g:message code="userRole.role.label" default="Role"/>
+        <span class="required-indicator">*</span>
+    </label>
+    <g:select style="width: 100%;" id="select2_1" name="role.id" from="${com.westeros.thewall.Role.list()}"
+              optionKey="id" required="" value="${userRoleInstance?.role?.id}" class="many-to-one"/>
 </div>
 

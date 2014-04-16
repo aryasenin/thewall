@@ -1,61 +1,133 @@
 <% import grails.persistence.Event %>
 <%=packageName%>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#show-${domainClass.propertyName}" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="\${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-${domainClass.propertyName}" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="\${flash.message}">
-			<div class="message" role="status">\${flash.message}</div>
-			</g:if>
-			<ol class="property-list ${domainClass.propertyName}">
-			<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
-				allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
-				props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) }
-				Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
-				props.each { p -> %>
-				<g:if test="\${${propertyName}?.${p.name}}">
-				<li class="fieldcontain">
-					<span id="${p.name}-label" class="property-label"><g:message code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}" /></span>
-					<%  if (p.isEnum()) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:fieldValue bean="\${${propertyName}}" field="${p.name}"/></span>
-					<%  } else if (p.oneToMany || p.manyToMany) { %>
-						<g:each in="\${${propertyName}.${p.name}}" var="${p.name[0]}">
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${p.name[0]}.id}">\${${p.name[0]}?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					<%  } else if (p.manyToOne || p.oneToOne) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${p.name}?.encodeAsHTML()}</g:link></span>
-					<%  } else if (p.type == Boolean || p.type == boolean) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:formatBoolean boolean="\${${propertyName}?.${p.name}}" /></span>
-					<%  } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:formatDate date="\${${propertyName}?.${p.name}}" /></span>
-					<%  } else if (!p.type.isArray()) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:fieldValue bean="\${${propertyName}}" field="${p.name}"/></span>
-					<%  } %>
-				</li>
-				</g:if>
-			<%  } %>
-			</ol>
-			<g:form>
-				<fieldset class="buttons">
-					<g:hiddenField name="id" value="\${${propertyName}?.id}" />
-					<g:link class="edit" action="edit" id="\${${propertyName}?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</div>
-	</body>
+<!--[if lt IE 7]>
+<html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-discover"> <![endif]-->
+<!--[if IE 7]>
+<html class="ie lt-ie9 lt-ie8 sidebar sidebar-discover"> <![endif]-->
+<!--[if IE 8]>
+<html class="ie lt-ie9 sidebar sidebar-discover"> <![endif]-->
+<!--[if gt IE 8]>
+<html class="ie sidebar sidebar-discover"> <![endif]-->
+<!--[if !IE]><!-->
+<html class="sidebar sidebar-discover"><!-- <![endif]-->
+<head>
+    <title><g:message code="${domainClass.propertyName}.show" default="Consultation ${className}s"/></title>
+    <meta name="layout" content="main">
+    <g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}"/>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+</head>
+
+<body>
+
+<h1><g:message code="${domainClass.propertyName}.show" default="Consultation ${className}"/></h1>
+
+<div class="innerLR">
+    <!-- Widget -->
+    <div class="widget widget-body-white widget-heading-simple">
+        <g:if test="\${flash.message}">
+            <!-- Alert -->
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.sucessfully.message" default="Succès : "/></strong> \${flash.message}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+
+        <g:if test="\${flash.error}">
+            <!-- Alert -->
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.error.message" default="Erreur : "/></strong> \${flash.error}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+
+        <g:if test="\${flash.warning}">
+            <!-- Alert -->
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.warning.message" default="Attention : "/></strong> \${flash.warning}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+
+        <g:if test="\${flash.info}">
+            <!-- Alert -->
+            <div class="alert alert-primary">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong><g:message code="default.information.message"
+                                   default="Informations : "/></strong> \${flash.info}
+            </div>
+            <!-- // Alert END -->
+        </g:if>
+        <div class="widget">
+            <div class="widget-head">
+                <h4 class="heading">Informations de ${className}</h4>
+            </div>
+
+            <div class="widget-body">
+
+                <div class="row">
+
+                    <% excludedProps = Event.allEvents.toList() << 'id' << 'version'
+                    allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
+                    props = domainClass.properties.findAll {
+                        allowedNames.contains(it.name) && !excludedProps.contains(it.name)
+                    }
+                    Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
+                    props.each { p -> %>
+
+                    <div class="col-md-6">
+                        <h5 class="padTop"><g:message
+                                code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}"/></h5>
+
+                        <% if (p.isEnum()) { %>
+                        <g:textField name="${p.name}" class="form-control" disabled="disabled"
+                                     value="\${${propertyName}?.${p.name}}"/>
+                        <% } else if (p.oneToMany || p.manyToMany) { %>
+                        <g:each in="\${${propertyName}.${p.name}}" var="${p.name[0]}">
+                            <g:link controller="${p.referencedDomainClass?.propertyName}" action="show"
+                                    id="\${${p.name[0]}.id}">\${${p.name[0]}?.encodeAsHTML()}</g:link>
+                        </g:each>
+                        <% } else if (p.manyToOne || p.oneToOne) { %>
+                        <g:link controller="${p.referencedDomainClass?.propertyName}" action="show"
+                                id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${
+                                p.name}?.encodeAsHTML()}</g:link>
+                        <% } else if (p.type == Boolean || p.type == boolean) { %>
+                        <div class="form-control disabled">
+                            <g:message
+                                    code="${domainClass.propertyName}.${p.name}.\${${propertyName}?.${p.name}}"/>
+                        </div>
+                        <%
+                            } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
+                        <div class="form-control disabled">
+                            <g:formatDate date="\${${propertyName}?.${p.name}}" format="dd/MM/yyyy HH:ss"/>
+                        </div>
+                        <% } else if (!p.type.isArray()) { %>
+                        <g:textField name="${p.name}" class="form-control" disabled="disabled"
+                                     value="\${${propertyName}?.${p.name}}"/>
+                        <% } %>
+                    </div>
+
+                    <div class="separator bottom"></div>
+
+
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</body>
 </html>

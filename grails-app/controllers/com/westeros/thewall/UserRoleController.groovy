@@ -20,6 +20,7 @@ class UserRoleController {
     }
 
     def save() {
+        log.info("Params save User Role ${params}")
         def userRoleInstance = new UserRole(params)
         if (!userRoleInstance.save(flush: true)) {
             render(view: "create", model: [userRoleInstance: userRoleInstance])
@@ -27,7 +28,7 @@ class UserRoleController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'userRole.label', default: 'UserRole'), userRoleInstance.id])
-        redirect(action: "show", id: userRoleInstance.id)
+        redirect(action: "list", id: userRoleInstance.id)
     }
 
     def show(Long id) {

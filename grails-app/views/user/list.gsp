@@ -1,4 +1,3 @@
-
 <%@ page import="com.westeros.thewall.User" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -50,9 +49,9 @@
             <div class="modal-body">
                 <div class="innerAll">
                     <div class="innerLR">
-                        <form class="form-horizontal" role="form">
+                        <div class="form-horizontal" role="form">
                             <g:render template="formCreate"></g:render>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,7 +72,8 @@
                 <!-- Alert -->
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>Succès!</strong> ${flash.message}
+                    <strong><g:message code="default.sucessfully.message"
+                                       default="Succès : "/></strong> ${flash.message}
                 </div>
                 <!-- // Alert END -->
             </g:if>
@@ -82,7 +82,7 @@
                 <!-- Alert -->
                 <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>Erreur!</strong> ${flash.error}
+                    <strong><g:message code="default.error.message" default="Erreur : "/></strong> ${flash.error}
                 </div>
                 <!-- // Alert END -->
             </g:if>
@@ -91,7 +91,7 @@
                 <!-- Alert -->
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>Attention!</strong> ${flash.warning}
+                    <strong><g:message code="default.warning.message" default="Attention : "/></strong> ${flash.warning}
                 </div>
                 <!-- // Alert END -->
             </g:if>
@@ -100,7 +100,8 @@
                 <!-- Alert -->
                 <div class="alert alert-primary">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>Infos!</strong> ${flash.info}
+                    <strong><g:message code="default.information.message"
+                                       default="Informations : "/></strong> ${flash.info}
                 </div>
                 <!-- // Alert END -->
             </g:if>
