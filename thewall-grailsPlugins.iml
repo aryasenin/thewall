@@ -18,6 +18,7 @@
           <root url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/database-migration-1.3.8/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/ckeditor-3.6.6.1.1/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/ckeditor-3.6.6.1.1/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-datatables-1.7.5/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -28,7 +29,6 @@
           <unit-entry name="Gorm" />
           <unit-entry name="sessionFactory" />
         </datasource-map>
-        <naming-strategy-map />
       </configuration>
     </facet>
   </component>
@@ -78,6 +78,9 @@
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-1.11.0.1/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-1.11.0.1/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-1.11.0.1/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-datatables-1.7.5">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-datatables-1.7.5/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-ui-1.10.3">
       <sourceFolder url="file://$USER_HOME$/.grails/2.2.3/projects/thewall/plugins/jquery-ui-1.10.3/grails-app/taglib" isTestSource="false" />
