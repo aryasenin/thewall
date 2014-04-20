@@ -47,7 +47,6 @@ class JqueryDatePickerTagLib {
         out.println "<input type=\"hidden\" size=\"50%\" name=\"${name}_seconde\" value=\"${seconde}\" id=\"${id}_seconde\" />"
 
 
-
     }
 
     def jqDatePickerMaxDay = { attrs, body ->

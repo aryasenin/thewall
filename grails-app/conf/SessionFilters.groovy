@@ -41,7 +41,9 @@ class SessionFilters {
 
                                     // On recupere le "domaine parent" et on l'instancie avec l'id en parametre, afin de verifier
                                     // qu'il fait bien parti de l'etabEnCours
-                                    clazz = grailsApplication.domainClasses.find { it.clazz.simpleName == modelePere }?.clazz
+                                    clazz = grailsApplication.domainClasses.find {
+                                        it.clazz.simpleName == modelePere
+                                    }?.clazz
 
                                     if (clazz) {
                                         def instance = clazz.get(params?.id?.toLong())

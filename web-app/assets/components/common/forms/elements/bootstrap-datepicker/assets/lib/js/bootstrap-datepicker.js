@@ -264,9 +264,9 @@
                         // Clicked outside the datepicker, hide it
                         if (!(
                             this.element.is(e.target) ||
-                                this.element.find(e.target).length ||
-                                this.picker.is(e.target) ||
-                                this.picker.find(e.target).length
+                            this.element.find(e.target).length ||
+                            this.picker.is(e.target) ||
+                            this.picker.find(e.target).length
                             )) {
                             this.hide();
                         }
@@ -325,10 +325,10 @@
 
             if (
                 this.o.forceParse &&
-                    (
-                        this.isInput && this.element.val() ||
-                            this.hasInput && this.element.find('input').val()
-                        )
+                (
+                    this.isInput && this.element.val() ||
+                    this.hasInput && this.element.find('input').val()
+                    )
                 )
                 this.setValue();
             this._trigger('hide');
@@ -429,7 +429,7 @@
                 top = offset.top;
 
             this.picker.removeClass(
-                'datepicker-orient-top datepicker-orient-bottom ' +
+                    'datepicker-orient-top datepicker-orient-bottom ' +
                     'datepicker-orient-right datepicker-orient-left'
             );
 
