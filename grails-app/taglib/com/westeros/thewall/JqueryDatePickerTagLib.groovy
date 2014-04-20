@@ -1,8 +1,6 @@
 package com.westeros.thewall
 
 import java.text.DateFormat
-import java.text.SimpleDateFormat
-import org.codehaus.groovy.runtime.*;
 
 class JqueryDatePickerTagLib {
     def jqDatePicker = { attrs, body ->
@@ -36,9 +34,9 @@ class JqueryDatePickerTagLib {
         //Create date text field and supporting hidden text fields need by grails
         out.println "<div class=\"input-group date\" id=\"datepicker2\">"
         if (attrs.required) {
-            out.println "<input type=\"text\" size=\"50%\" class=\"form-control \" placeholder=\"dd/MM/yyyy\" required=\" \" name=\"${name}\" value=\"${value}\" id=\"${id}\" />"
+            out.println "<input type=\"text\" size=\"50%\" class=\"form-control \" placeholder=\"dd/MM/yyyy\" required=\" \" name=\"${name}\" value=\"${value}\" />"
         } else {
-            out.println "<input type=\"text\" size=\"50%\" class=\"form-control\" placeholder=\"dd/MM/yyyy\" name=\"${name}\" value=\"${value}\" id=\"${id}\" />"
+            out.println "<input type=\"text\" size=\"50%\" class=\"form-control\" placeholder=\"dd/MM/yyyy\" name=\"${name}\" value=\"${value}\" />"
         }
         out.println "<span class=\"input-group-addon\"><i class=\"fa fa-th\"></i></span> </div>"
         out.println "<input type=\"hidden\" size=\"50%\" name=\"${name}_day\" value=\"${day}\" id=\"${id}_day\" />"
