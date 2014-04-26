@@ -25,10 +25,10 @@
 
 <body>
 
-<h1><g:message code="user.list" default="Les Users"/>
+<h3><g:message code="user.list" default="Les Users"/>
     <a href="#modal-new-user" data-toggle="modal" style="float:right; background:#FFF"
        class="btn btn-primary btn-stroke"><g:message code="user.add" default="Ajouter"/></a>
-</h1>
+</h3>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-new-user">
@@ -91,7 +91,8 @@
                 <!-- Alert -->
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong><g:message code="default.warning.message" default="Attention : "/></strong> ${flash.warning}
+                    <strong><g:message code="default.warning.message"
+                                       default="Attention : "/></strong> ${flash.warning}
                 </div>
                 <!-- // Alert END -->
             </g:if>
@@ -109,13 +110,11 @@
         <!-- Table -->
             <table class="dynamicTable colVis table">
                 <!-- Table heading -->
-                <thead class="bg-gray">
+                <thead class="bg-primary">
                 <tr>
 
                     <th><g:message code="user.username.label" default="Username"/></th>
 
-
-                    <th><g:message code="user.password.label" default="Password"/></th>
 
 
                     <th><g:message code="user.accountExpired.label" default="Account Expired"/></th>
@@ -138,8 +137,6 @@
 
                         <td><g:link action="show"
                                     id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
-
-                        <td>${fieldValue(bean: userInstance, field: "password")}</td>
 
                         <td><g:formatBoolean boolean="${userInstance.accountExpired}"/></td>
 

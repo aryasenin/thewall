@@ -24,17 +24,15 @@
 </head>
 
 <body>
-
-<h1><g:message code="user.show" default="Consultation User"/></h1>
-
 <div class="innerLR">
-<!-- Widget -->
-<div class="widget widget-body-white widget-heading-simple">
+<h3><g:message code="user.show" default="Consultation User"/></h3>
+
 <g:if test="${flash.message}">
     <!-- Alert -->
     <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong><g:message code="default.sucessfully.message" default="Succès : "/></strong> ${flash.message}
+        <strong><g:message code="default.sucessfully.message"
+                           default="Succès : "/></strong> ${flash.message}
     </div>
     <!-- // Alert END -->
 </g:if>
@@ -52,7 +50,8 @@
     <!-- Alert -->
     <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong><g:message code="default.warning.message" default="Attention : "/></strong> ${flash.warning}
+        <strong><g:message code="default.warning.message"
+                           default="Attention : "/></strong> ${flash.warning}
     </div>
     <!-- // Alert END -->
 </g:if>
@@ -61,169 +60,180 @@
     <!-- Alert -->
     <div class="alert alert-primary">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong><g:message code="default.information.message" default="Informations : "/></strong> ${flash.info}
+        <strong><g:message code="default.information.message"
+                           default="Informations : "/></strong> ${flash.info}
     </div>
     <!-- // Alert END -->
-        </g:if>
-<div class="widget">
-    <div class="widget-head">
-        <h4 class="heading">Informations de User</h4>
-    </div>
+</g:if>
 
-    <div class="widget-body">
+<div class="separator-h"></div>
 
-        <div class="row">
+<div class="row">
+<!-- Widget -->
+<div class="col-md-8">
+    <div class="widget">
+        <div class="widget-head">
+            <h4 class="heading">Informations de User</h4>
+        </div>
 
-            <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.username.label" default="Username"/></h5>
-
-
-                <g:textField name="username" class="form-control" disabled="disabled"
-                             value="${userInstance?.username}"/>
-
-            </div>
-
-            <div class="separator bottom"></div>
-
+        <div class="row innerAll">
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.password.label" default="Password"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.username.label" default="Username"/>:
 
 
-                <g:textField name="password" class="form-control" disabled="disabled"
-                             value="${userInstance?.password}"/>
+                        <span class="text-weight-normal">${userInstance?.username}</span>
 
-            </div>
-
-            <div class="separator bottom"></div>
-
-
-            <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.dateCreated.label" default="Date Created"/></h5>
-
-
-                <div class="form-control disabled">
-                    <g:formatDate date="${userInstance?.dateCreated}" format="dd/MM/yyyy HH:ss"/>
                 </div>
-
             </div>
 
             <div class="separator bottom"></div>
 
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.lastUpdated.label" default="Last Updated"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.password.label" default="Password"/>:
 
 
-                <div class="form-control disabled">
-                    <g:formatDate date="${userInstance?.lastUpdated}" format="dd/MM/yyyy HH:ss"/>
+                        <span class="text-weight-normal">${userInstance?.password}</span>
+
                 </div>
-
             </div>
 
             <div class="separator bottom"></div>
 
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.userCreated.label" default="User Created"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.dateCreated.label" default="Date Created"/>:
 
 
-                <g:textField name="userCreated" class="form-control" disabled="disabled"
-                             value="${userInstance?.userCreated}"/>
+                        <span class="text-weight-normal"><g:formatDate date="${userInstance?.dateCreated}"
+                                                                       format="dd/MM/yyyy HH:ss"/></span>
 
-            </div>
-
-            <div class="separator bottom"></div>
-
-
-            <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.userUpdated.label" default="User Updated"/></h5>
-
-
-                <g:textField name="userUpdated" class="form-control" disabled="disabled"
-                             value="${userInstance?.userUpdated}"/>
-
-            </div>
-
-            <div class="separator bottom"></div>
-
-
-            <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.deleted.label" default="Deleted"/></h5>
-
-
-                <div class="form-control disabled">
-                    <g:message
-                            code="user.deleted.${userInstance?.deleted}"/>
                 </div>
-
             </div>
 
             <div class="separator bottom"></div>
 
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.accountExpired.label" default="Account Expired"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.lastUpdated.label" default="Last Updated"/>:
 
 
-                <div class="form-control disabled">
-                    <g:message
-                            code="user.accountExpired.${userInstance?.accountExpired}"/>
+                        <span class="text-weight-normal"><g:formatDate date="${userInstance?.lastUpdated}"
+                                                                       format="dd/MM/yyyy HH:ss"/></span>
+
                 </div>
-
             </div>
 
             <div class="separator bottom"></div>
 
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.accountLocked.label" default="Account Locked"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.userCreated.label" default="User Created"/>:
 
 
-                <div class="form-control disabled">
-                    <g:message
-                            code="user.accountLocked.${userInstance?.accountLocked}"/>
+                        <span class="text-weight-normal">${userInstance?.userCreated}</span>
+
                 </div>
-
             </div>
 
             <div class="separator bottom"></div>
 
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.enabled.label" default="Enabled"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.userUpdated.label" default="User Updated"/>:
 
 
-                <div class="form-control disabled">
-                    <g:message
-                            code="user.enabled.${userInstance?.enabled}"/>
+                        <span class="text-weight-normal">${userInstance?.userUpdated}</span>
+
                 </div>
-
             </div>
 
             <div class="separator bottom"></div>
 
 
             <div class="col-md-6">
-                <h5 class="padTop"><g:message
-                        code="user.passwordExpired.label" default="Password Expired"/></h5>
+                <div class="strong">
+                    <p><g:message
+                            code="user.deleted.label" default="Deleted"/>:
 
 
-                <div class="form-control disabled">
-                    <g:message
-                            code="user.passwordExpired.${userInstance?.passwordExpired}"/>
+                        <span class="text-weight-normal"><g:message
+                                code="user.deleted.${userInstance?.deleted}"/></span>
+
                 </div>
+            </div>
 
+            <div class="separator bottom"></div>
+
+
+            <div class="col-md-6">
+                <div class="strong">
+                    <p><g:message
+                            code="user.accountExpired.label" default="Account Expired"/>:
+
+
+                        <span class="text-weight-normal"><g:message
+                                code="user.accountExpired.${userInstance?.accountExpired}"/></span>
+
+                </div>
+            </div>
+
+            <div class="separator bottom"></div>
+
+
+            <div class="col-md-6">
+                <div class="strong">
+                    <p><g:message
+                            code="user.accountLocked.label" default="Account Locked"/>:
+
+
+                        <span class="text-weight-normal"><g:message
+                                code="user.accountLocked.${userInstance?.accountLocked}"/></span>
+
+                </div>
+            </div>
+
+            <div class="separator bottom"></div>
+
+
+            <div class="col-md-6">
+                <div class="strong">
+                    <p><g:message
+                            code="user.enabled.label" default="Enabled"/>:
+
+
+                        <span class="text-weight-normal"><g:message
+                                code="user.enabled.${userInstance?.enabled}"/></span>
+
+                </div>
+            </div>
+
+            <div class="separator bottom"></div>
+
+
+            <div class="col-md-6">
+                <div class="strong">
+                    <p><g:message
+                            code="user.passwordExpired.label" default="Password Expired"/>:
+
+
+                        <span class="text-weight-normal"><g:message
+                                code="user.passwordExpired.${userInstance?.passwordExpired}"/></span>
+
+                </div>
             </div>
 
             <div class="separator bottom"></div>
@@ -232,7 +242,45 @@
     </div>
 </div>
 
+<div class="col-md-4">
+    <!-- Widget -->
+    <a href="#" class="display-block innerAll  bg-primary text-decoration-none">
+        <span class="display-block text-center innerAll half">
+            <i class="fa fa-fw fa-4x icon-top-hat text-white"></i>
+
+            <h2 class="strong text-condensed text-white margin-none">Informations importante</h2>
+
+            <p class="lead margin-none strong text-white">Paiement loyer &euro;250 &nbsp; <span
+                    class="btn btn-default btn-xs">Details <i class="fa fa-fw fa-caret-right"></i></span></p>
+        </span>
+    </a>
+
+    <div class="separator bottom"></div>
+
+    <div class="widget">
+        <div class="widget-body padding-none">
+            <h4 class="innerAll bg-primary text-white margin-bottom-none">Autres actions:</h4>
+            <ul class="list-group list-group-1 margin-none borders-none">
+                <li class="list-group-item border-top-none"><a href="courses_listing.html?lang=en"><span
+                        class="badge pull-right bg-primary ">30</span><i
+                        class="fa fa-exclamation-circle"></i>&nbsp; Action 1</a></li>
+                <li class="list-group-item"><a href="courses_listing.html?lang=en"><span
+                        class="badge pull-right bg-primary ">2</span><i class="fa fa-ticket"></i>&nbsp; Action 2</a>
+                </li>
+                <li class="list-group-item"><a href="courses_listing.html?lang=en"><i
+                        class="fa fa-spinner"></i>&nbsp; Action 3</a></li>
+                <li class="list-group-item"><a href="courses_listing.html?lang=en"><i
+                        class="fa fa-pencil"></i>&nbsp; Action 4</a></li>
+                <li class="list-group-item"><a href="courses_listing.html?lang=en"><i
+                        class="icon-folder-fill"></i>&nbsp; Action 5</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- //Widget -->
+
 </div>
+<!-- //End Col -->
+
 </div>
 </div>
 

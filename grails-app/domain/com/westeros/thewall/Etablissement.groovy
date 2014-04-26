@@ -47,8 +47,6 @@ class Etablissement {
     String userCreated
     String userUpdated
 
-    static numeroPattern = /^(0|\+|[0-9])*$/
-
     static mapping = {
         // logo sqlType: "mediumblob"
         //fondCarte sqlType: "mediumblob"
@@ -60,7 +58,6 @@ class Etablissement {
         codeEtab(blank: false, size: 1..50, unique: true)
         codeSms(nullable: true, size: 1..50, unique: true)
         libEtab(blank: false, size: 1..200)
-        //pays(nullable: true)
         prefixeUrl(nullable: true, unique: true)
         villeEtab(nullable: true, size: 2..75)
         adresseEtab1(nullable: true, size: 1..128)
@@ -74,7 +71,6 @@ class Etablissement {
         indSendEmail(nullable: true)
         indSendSms(nullable: true)
 
-        pays(nullable: true)
         codeSmsServiceEtab(nullable: true)
 
         //Info reporting
