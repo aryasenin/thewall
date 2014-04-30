@@ -88,7 +88,7 @@
 
                 <div class="row">
 
-                    <g:form action="save">
+                    <g:form action="save" enctype="multipart/form-data">
                         <g:render template="form"/>
                         <div class="separator"></div>
                         <!-- Form actions -->

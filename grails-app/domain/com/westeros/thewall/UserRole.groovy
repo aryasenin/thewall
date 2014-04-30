@@ -4,8 +4,22 @@ import org.apache.commons.lang.builder.HashCodeBuilder
 
 class UserRole implements Serializable {
 
+    Long id
+    Long version
+
     User user
     Role role
+
+    static transients = ['etablissement']
+
+    def getEtablissement() {
+        return this?.user?.etablissement
+    }
+
+    static constraints = {
+        user(unique: ["user", "role"])
+        role()
+    }
 
     boolean equals(other) {
         if (!(other instanceof UserRole)) {
@@ -48,15 +62,5 @@ class UserRole implements Serializable {
 
     static void removeAll(Role role) {
         executeUpdate 'DELETE FROM UserRole WHERE role=:role', [role: role]
-    }
-
-    static mapping = {
-        id composite: ['role', 'user']
-        version false
-    }
-
-    static constraints = {
-        user(unique: ["user", "role"])
-        role()
     }
 }

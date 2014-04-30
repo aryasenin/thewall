@@ -91,7 +91,8 @@
                 <!-- Alert -->
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong><g:message code="default.warning.message" default="Attention : "/></strong> ${flash.warning}
+                    <strong><g:message code="default.warning.message"
+                                       default="Attention : "/></strong> ${flash.warning}
                 </div>
                 <!-- // Alert END -->
             </g:if>
@@ -112,22 +113,22 @@
                 <thead class="bg-gray">
                 <tr>
 
-                    <th><g:message code="user.username.label" default="Username"/></th>
+                    <th><g:message code="user.userType.label" default="User Type"/></th>
 
 
-                    <th><g:message code="user.password.label" default="Password"/></th>
+                    <th><g:message code="user.civilite.label" default="Civilite"/></th>
 
 
-                    <th><g:message code="user.accountExpired.label" default="Account Expired"/></th>
+                    <th><g:message code="user.nom.label" default="Nom"/></th>
 
 
-                    <th><g:message code="user.accountLocked.label" default="Account Locked"/></th>
+                    <th><g:message code="user.prenom.label" default="Prenom"/></th>
 
 
-                    <th><g:message code="user.enabled.label" default="Enabled"/></th>
+                    <th><g:message code="user.email.label" default="Email"/></th>
 
 
-                    <th><g:message code="user.passwordExpired.label" default="Password Expired"/></th>
+                    <th><g:message code="user.telMobile.label" default="Tel Mobile"/></th>
 
                 </tr>
                 </thead>
@@ -137,17 +138,17 @@
                     <tr>
 
                         <td><g:link action="show"
-                                    id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
+                                    id="${userInstance.id}">${fieldValue(bean: userInstance, field: "userType")}</g:link></td>
 
-                        <td>${fieldValue(bean: userInstance, field: "password")}</td>
+                        <td>${fieldValue(bean: userInstance, field: "civilite")}</td>
 
-                        <td><g:formatBoolean boolean="${userInstance.accountExpired}"/></td>
+                        <td>${fieldValue(bean: userInstance, field: "nom")}</td>
 
-                        <td><g:formatBoolean boolean="${userInstance.accountLocked}"/></td>
+                        <td>${fieldValue(bean: userInstance, field: "prenom")}</td>
 
-                        <td><g:formatBoolean boolean="${userInstance.enabled}"/></td>
+                        <td>${fieldValue(bean: userInstance, field: "email")}</td>
 
-                        <td><g:formatBoolean boolean="${userInstance.passwordExpired}"/></td>
+                        <td>${fieldValue(bean: userInstance, field: "telMobile")}</td>
 
                     </tr>
                 </g:each>

@@ -22,9 +22,7 @@ class Pays {
     String userCreated
     String userUpdated
 
-
     //static transients = ['etablissement']
-
 
     /*def getEtablissement() {
         def currentRequest = RequestContextHolder.requestAttributes

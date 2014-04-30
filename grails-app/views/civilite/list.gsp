@@ -1,4 +1,3 @@
-
 <%@ page import="com.westeros.thewall.Civilite" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -113,45 +112,44 @@
                 <!-- Table heading -->
                 <thead class="bg-gray">
                 <tr>
-                    
+
                     <th><g:message code="civilite.code.label" default="Code"/></th>
 
-                    
+
                     <th><g:message code="civilite.libelle.label" default="Libelle"/></th>
 
-                    
+
                     <th><g:message code="civilite.libelleReduit.label" default="Libelle Reduit"/></th>
 
-                    
+
                     <th><g:message code="civilite.userCreate.label" default="User Create"/></th>
 
-                    
+
                     <th><g:message code="civilite.userUpdate.label" default="User Update"/></th>
 
-                    
+
                     <th><g:message code="civilite.springSecurityService.label" default="Spring Security Service"/></th>
 
-                    
                 </tr>
                 </thead>
                 <tbody>
 
                 <g:each in="${civiliteInstanceList}" status="i" var="civiliteInstance">
                     <tr>
-                        
+
                         <td><g:link action="show"
                                     id="${civiliteInstance.id}">${fieldValue(bean: civiliteInstance, field: "code")}</g:link></td>
-                        
+
                         <td>${fieldValue(bean: civiliteInstance, field: "libelle")}</td>
-                        
+
                         <td>${fieldValue(bean: civiliteInstance, field: "libelleReduit")}</td>
-                        
+
                         <td>${fieldValue(bean: civiliteInstance, field: "userCreate")}</td>
-                        
+
                         <td>${fieldValue(bean: civiliteInstance, field: "userUpdate")}</td>
-                        
+
                         <td>${fieldValue(bean: civiliteInstance, field: "springSecurityService")}</td>
-                        
+
                     </tr>
                 </g:each>
 

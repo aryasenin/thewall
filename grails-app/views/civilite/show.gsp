@@ -1,4 +1,3 @@
-
 <%@ page import="com.westeros.thewall.Civilite" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -76,146 +75,125 @@
 
                 <div class="row">
 
-                    
-
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.etablissement.label" default="Etablissement"/></h5>
 
-                        
+
                         <g:link controller="etablissement" action="show"
                                 id="${civiliteInstance?.etablissement?.id}">${civiliteInstance?.etablissement?.encodeAsHTML()}</g:link>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.code.label" default="Code"/></h5>
 
-                        
+
                         <g:textField name="code" class="form-control" disabled="disabled"
                                      value="${civiliteInstance?.code}"/>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.libelle.label" default="Libelle"/></h5>
 
-                        
+
                         <g:textField name="libelle" class="form-control" disabled="disabled"
                                      value="${civiliteInstance?.libelle}"/>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.libelleReduit.label" default="Libelle Reduit"/></h5>
 
-                        
+
                         <g:textField name="libelleReduit" class="form-control" disabled="disabled"
                                      value="${civiliteInstance?.libelleReduit}"/>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.deleted.label" default="Deleted"/></h5>
 
-                        
+
                         <div class="form-control disabled">
                             <g:message
                                     code="civilite.deleted.${civiliteInstance?.deleted}"/>
                         </div>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.dateCreated.label" default="Date Created"/></h5>
 
-                        
+
                         <div class="form-control disabled">
                             <g:formatDate date="${civiliteInstance?.dateCreated}" format="dd/MM/yyyy HH:ss"/>
                         </div>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.lastUpdated.label" default="Last Updated"/></h5>
 
-                        
+
                         <div class="form-control disabled">
                             <g:formatDate date="${civiliteInstance?.lastUpdated}" format="dd/MM/yyyy HH:ss"/>
                         </div>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.userCreate.label" default="User Create"/></h5>
 
-                        
+
                         <g:textField name="userCreate" class="form-control" disabled="disabled"
                                      value="${civiliteInstance?.userCreate}"/>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
 
-
-                    
 
                     <div class="col-md-6">
                         <h5 class="padTop"><g:message
                                 code="civilite.userUpdate.label" default="User Update"/></h5>
 
-                        
+
                         <g:textField name="userUpdate" class="form-control" disabled="disabled"
                                      value="${civiliteInstance?.userUpdate}"/>
-                        
+
                     </div>
 
                     <div class="separator bottom"></div>
-
-
-                    
 
                 </div>
             </div>

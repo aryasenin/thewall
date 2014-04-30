@@ -6,6 +6,8 @@ class Etablissement {
     Long id
     Long version
 
+    Pays pays
+
     String codeEtab
     String codeSms
     String libEtab
@@ -60,7 +62,7 @@ class Etablissement {
         codeEtab(blank: false, size: 1..50, unique: true)
         codeSms(nullable: true, size: 1..50, unique: true)
         libEtab(blank: false, size: 1..200)
-        //pays(nullable: true)
+        pays(nullable: true)
         prefixeUrl(nullable: true, unique: true)
         villeEtab(nullable: true, size: 2..75)
         adresseEtab1(nullable: true, size: 1..128)
@@ -74,7 +76,6 @@ class Etablissement {
         indSendEmail(nullable: true)
         indSendSms(nullable: true)
 
-        pays(nullable: true)
         codeSmsServiceEtab(nullable: true)
 
         //Info reporting
