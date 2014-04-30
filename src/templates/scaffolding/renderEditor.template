@@ -169,7 +169,7 @@ private renderNumberEditor(domainClass, property) {
             if (property.type == Byte) {
                 return "<g:select noSelection=\"['': '']\" style=\"width: 100%;\" id=\"select2_1\" name=\"${property.name}\" from=\"\${-128..127}\" class=\"range\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\"  />"
             } else {
-                return "<g:field type=\"number\" name=\"${property.name}\" value=\"\${${domainInstance}.${property.name}}\" />"
+                return "<g:field type=\"number\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
             }
         } else {
 	        def sb = new StringBuilder()

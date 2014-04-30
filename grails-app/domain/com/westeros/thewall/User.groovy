@@ -51,5 +51,9 @@ class User {
         password = springSecurityService.encodePassword(password)
     }
 
+/*    String toString() {
+        return "${username} - ${nom} ${prenom}"
+    }*/
+
     static modelePere = ""
 }
