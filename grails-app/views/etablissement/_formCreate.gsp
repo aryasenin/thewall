@@ -19,7 +19,6 @@
         </div>
     </div>
 
-
     <div class="form-group">
         <div class="form-group ${hasErrors(bean: etablissementInstance, field: 'libelleEtab', 'error')} required">
 

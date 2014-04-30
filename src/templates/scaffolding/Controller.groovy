@@ -20,12 +20,12 @@ class ${className}Controller {
     def save() {
         def ${propertyName} = new ${className}(params)
         if (!${propertyName}.save(flush: true)) {
-            render(view: "create", model: [${propertyName}: ${propertyName}])
+            render(view: "list", model: [$ { propertyName }: $ { propertyName }])
             return
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: "show", id: ${propertyName}.id)
+        redirect(action: "list", id: $ { propertyName }.id)
     }
 
     def show(Long id) {
@@ -63,7 +63,7 @@ class ${className}Controller {
                 ${propertyName}.errors.rejectValue("version", "default.optimistic.locking.failure",
                           [message(code: '${domainClass.propertyName}.label', default: '${className}')] as Object[],
                           "Another user has updated this ${className} while you were editing")
-                render(view: "edit", model: [${propertyName}: ${propertyName}])
+                render(view: "list", model: [$ { propertyName }: $ { propertyName }])
                 return
             }
         }
@@ -71,12 +71,12 @@ class ${className}Controller {
         ${propertyName}.properties = params
 
         if (!${propertyName}.save(flush: true)) {
-            render(view: "edit", model: [${propertyName}: ${propertyName}])
+            render(view: "list", model: [$ { propertyName }: $ { propertyName }])
             return
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
-        redirect(action: "show", id: ${propertyName}.id)
+        redirect(action: "list", id: $ { propertyName }.id)
     }
 
     def delete(Long id) {
@@ -94,7 +94,7 @@ class ${className}Controller {
         }
         catch (DataIntegrityViolationException e) {
             flash.message = message(code: 'default.not.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
-            redirect(action: "show", id: id)
+            redirect(action: "list", id: id)
         }
     }
 }
