@@ -22,12 +22,12 @@ class CiviliteController {
     def save() {
         def civiliteInstance = new Civilite(params)
         if (!civiliteInstance.save(flush: true)) {
-            render(view: "create", model: [civiliteInstance: civiliteInstance])
+            render(view: "list", model: [civiliteInstance: civiliteInstance])
             return
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'civilite.label', default: 'Civilite'), civiliteInstance.id])
-        redirect(action: "show", id: civiliteInstance.id)
+        redirect(action: "list", id: civiliteInstance.id)
     }
 
     def show(Long id) {

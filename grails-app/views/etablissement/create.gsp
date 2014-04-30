@@ -1,3 +1,4 @@
+
 <%@ page import="com.westeros.thewall.Etablissement" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -88,17 +89,17 @@
 
                 <div class="row">
 
-                    <g:form action="save" enctype="multipart/form-data">
-                        <g:render template="form"/>
-                        <div class="separator"></div>
-                        <!-- Form actions -->
-                        <div class="form-actions">
-                            <g:submitButton name="create" class="btn btn-primary"
-                                            value="${message(code: 'default.button.create.label', default: 'Créer')}"/>
-                            <g:submitButton name="create" class="btn btn-default"
-                                            value="${message(code: 'default.button.cancel.label', default: 'Annuler')}"/>
-                        </div>
-                        <!-- // Form actions END -->
+                    <g:form action="save"  enctype="multipart/form-data">
+                    <g:render template="form"/>
+                    <div class="separator"></div>
+                    <!-- Form actions -->
+                    <div class="form-actions">
+                        <g:submitButton name="create" class="btn btn-primary"
+                                        value="${message(code: 'default.button.create.label', default: 'Créer')}"/>
+                        <g:submitButton name="create" class="btn btn-default"
+                                        value="${message(code: 'default.button.cancel.label', default: 'Annuler')}"/>
+                    </div>
+                    <!-- // Form actions END -->
                     </g:form>
                 </div>
             </div>
