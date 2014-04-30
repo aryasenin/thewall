@@ -92,31 +92,35 @@
                             <p><g:message
                                     code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}"/>:
 
-                        <% if (p.isEnum()) { %>
-                                <span class="text-weight-normal">\${${propertyName}?.${p.name}}</span>
-                                <% } else if (p.oneToMany || p.manyToMany) { %>
-                        <g:each in="\${${propertyName}.${p.name}}" var="${p.name[0]}">
-                            <span class="text-weight-normal"><g:link
-                                    controller="${p.referencedDomainClass?.propertyName}" action="show"
-                                    id="\${${p.name[0]}.id}">\${${p.name[0]}?.encodeAsHTML()}</g:link></span>
-                        </g:each>
-                        <% } else if (p.manyToOne || p.oneToOne) { %>
-                                <span class="text-weight-normal"><g:link
-                                        controller="${p.referencedDomainClass?.propertyName}" action="show"
-                                id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${
-                                            p.name}?.encodeAsHTML()}</g:link></span>
-                                <% } else if (p.type == Boolean || p.type == boolean) { %>
-                                <span class="text-weight-normal"><g:message
-                                        code="${domainClass.propertyName}.${p.name}.\${${propertyName}?.${
-                                                p.name}}"/></span>
-                                <%
-                            } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
-                                <span class="text-weight-normal"><g:formatDate date="\${${propertyName}?.${p.name}}"
-                                                                               format="dd/MM/yyyy HH:ss"/></span>
-                                <% } else if (!p.type.isArray()) { %>
-                                <span class="text-weight-normal">\${${propertyName}?.${p.name}}</span>
-                                <% } %>
-                    </div>
+                            <% if (p.isEnum()) { %>
+                            <g:textField name="${p.name}" class="form-control" disabled="disabled"
+                                         value="\${${propertyName}?.${p.name}}"/>
+                            <% } else if (p.oneToMany || p.manyToMany) { %>
+                            <g:each in="\${${propertyName}.${p.name}}" var="${p.name[0]}">
+                                <g:link controller="${p.referencedDomainClass?.propertyName}" action="show"
+                                        id="\${${p.name[0]}.id}">\${${p.name[0]}?.encodeAsHTML()}</g:link>
+                            </g:each>
+                            <% } else if (p.manyToOne || p.oneToOne) { %>
+                            <g:link controller="${p.referencedDomainClass?.propertyName}" action="show"
+                                    id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${
+                                    p.name}?.encodeAsHTML()}</g:link>
+                            <% } else if (p.type == Boolean || p.type == boolean) { %>
+
+                            <div class="form-control disabled">
+                                <g:message
+                                        code="${domainClass.propertyName}.${p.name}.\${${propertyName}?.${p.name}}"/>
+                            </div>
+                            <%
+                                } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
+                            <div class="form-control disabled">
+                                <g:formatDate date="\${${propertyName}?.${p.name}}" format="dd/MM/yyyy HH:ss"/>
+                            </div>
+                            <% } else if (!p.type.isArray()) { %>
+                            <g:textField name="${p.name}" class="form-control" disabled="disabled"
+                                         value="\${${propertyName}?.${p.name}}"/>
+                            <% } %>
+                        </p>
+                        </div>
                     </div>
 
                     <div class="separator bottom"></div>
@@ -161,6 +165,43 @@
                                 class="icon-folder-fill"></i>&nbsp; Action 5</a></li>
                     </ul>
                 </div>
+            </div>
+            <!-- Widget	 -->
+            <div class="widget widget-body-white padding-none ">
+                <div class="widget-head height-auto">
+                    <div class="media innerAll">
+                        <a href="" class="pull-right"><i class="fa icon-comment-fill-2"></i></a>
+                        <a href="" class="pull-left"><img src="../assets/images/people/50/8.jpg" alt=""
+                                                          class="img-circle"></a>
+
+                        <div class="media-body">
+                            <h4>Emanuel L.</h4>
+
+                            <p class="margin-none">Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="innerAll border-bottom">
+                        <span class="badge badge-default pull-right">4</span>
+                        <i class="fa fa-fw icon-user-1"></i> Team Members
+                    </li>
+                    <li class="innerAll border-bottom">
+                        <span class="badge badge-default pull-right">4</span>
+                        <i class="fa fa-fw fa-dashboard"></i> Active Projects
+                    </li>
+                    <li class="innerAll border-bottom">
+                        <span class="badge badge-default bg-primary pull-right">59</span>
+                        <i class="fa fa-fw icon-browser-check"></i> Completed Tasks
+                    </li>
+                    <li class="innerAll border-bottom">
+                        <span class="badge badge-default pull-right">3</span>
+                        <i class="fa fa-fw fa-file-text-o"></i> Files under review
+                    </li>
+                    <li class="innerAll bg-white text-center">
+                        <a href="" class="btn btn-primary btn-sm">View Profile</a>
+                    </li>
+                </ul>
             </div>
             <!-- //Widget -->
 

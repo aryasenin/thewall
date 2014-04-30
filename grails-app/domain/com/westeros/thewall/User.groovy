@@ -337,5 +337,9 @@ class User {
         }
     }
 
+/*    String toString() {
+        return "${username} - ${nom} ${prenom}"
+    }*/
+
     static modelePere = ""
 }

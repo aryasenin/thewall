@@ -26,10 +26,10 @@
 
 <body>
 
-<h3><g:message code="${domainClass.propertyName}.list" default="Les ${className}s"/>
+<h1><g:message code="${domainClass.propertyName}.list" default="Les ${className}s"/>
     <a href="#modal-new-${domainClass.propertyName}" data-toggle="modal" style="float:right; background:#FFF"
        class="btn btn-primary btn-stroke"><g:message code="${domainClass.propertyName}.add" default="Ajouter"/></a>
-</h3>
+</h1>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-new-${domainClass.propertyName}">
@@ -111,7 +111,7 @@
         <!-- Table -->
             <table class="dynamicTable colVis table">
                 <!-- Table heading -->
-                <thead class="bg-primary">
+                <thead class="bg-gray">
                 <tr>
                     <% excludedProps = Event.allEvents.toList() << 'id' << 'version' << 'dateCreated' << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
                     props = domainClass.properties.findAll {

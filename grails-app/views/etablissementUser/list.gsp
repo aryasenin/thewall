@@ -1,5 +1,4 @@
-<% import grails.persistence.Event %>
-<%=packageName%>
+<%@ page import="com.westeros.thewall.EtablissementUser" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-discover"> <![endif]-->
@@ -12,9 +11,9 @@
 <!--[if !IE]><!-->
 <html class="sidebar sidebar-discover"><!-- <![endif]-->
 <head>
-    <title><g:message code="${domainClass.propertyName}.list" default="Les ${className}s"/></title>
+    <title><g:message code="etablissementUser.list" default="Les EtablissementUsers"/></title>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="\${message(code: '${domainClass.propertyName}.label', default: '${className}')}"/>
+    <g:set var="entityName" value="${message(code: 'etablissementUser.label', default: 'EtablissementUser')}"/>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -26,13 +25,13 @@
 
 <body>
 
-<h3><g:message code="${domainClass.propertyName}.list" default="Les ${className}s"/>
-    <a href="#modal-new-${domainClass.propertyName}" data-toggle="modal" style="float:right; background:#FFF"
-       class="btn btn-primary btn-stroke"><g:message code="${domainClass.propertyName}.add" default="Ajouter"/></a>
+<h3><g:message code="etablissementUser.list" default="Les EtablissementUsers"/>
+    <a href="#modal-new-etablissementUser" data-toggle="modal" style="float:right; background:#FFF"
+       class="btn btn-primary btn-stroke"><g:message code="etablissementUser.add" default="Ajouter"/></a>
 </h3>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-new-${domainClass.propertyName}">
+<div class="modal fade" id="modal-new-etablissementUser">
 
     <div class="modal-dialog">
         <div class="modal-content">
@@ -41,8 +40,8 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-                <h3 class="modal-title"><g:message code="${domainClass.propertyName}.new"
-                                                   default="Nouveau ${className}"/></h3>
+                <h3 class="modal-title"><g:message code="etablissementUser.new"
+                                                   default="Nouveau EtablissementUser"/></h3>
             </div>
             <!-- // Modal heading END -->
 
@@ -69,41 +68,41 @@
     <div class="widget widget-body-white widget-heading-simple">
         <div class="widget-body">
 
-            <g:if test="\${flash.message}">
+            <g:if test="${flash.message}">
                 <!-- Alert -->
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">×</button>
                     <strong><g:message code="default.sucessfully.message"
-                                       default="Succès : "/></strong> \${flash.message}
+                                       default="Succès : "/></strong> ${flash.message}
                 </div>
                 <!-- // Alert END -->
             </g:if>
 
-            <g:if test="\${flash.error}">
+            <g:if test="${flash.error}">
                 <!-- Alert -->
                 <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong><g:message code="default.error.message" default="Erreur : "/></strong> \${flash.error}
+                    <strong><g:message code="default.error.message" default="Erreur : "/></strong> ${flash.error}
                 </div>
                 <!-- // Alert END -->
             </g:if>
 
-            <g:if test="\${flash.warning}">
+            <g:if test="${flash.warning}">
                 <!-- Alert -->
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert">×</button>
                     <strong><g:message code="default.warning.message"
-                                       default="Attention : "/></strong> \${flash.warning}
+                                       default="Attention : "/></strong> ${flash.warning}
                 </div>
                 <!-- // Alert END -->
             </g:if>
 
-            <g:if test="\${flash.info}">
+            <g:if test="${flash.info}">
                 <!-- Alert -->
                 <div class="alert alert-primary">
                     <button type="button" class="close" data-dismiss="alert">×</button>
                     <strong><g:message code="default.information.message"
-                                       default="Informations : "/></strong> \${flash.info}
+                                       default="Informations : "/></strong> ${flash.info}
                 </div>
                 <!-- // Alert END -->
             </g:if>
@@ -113,40 +112,25 @@
                 <!-- Table heading -->
                 <thead class="bg-primary">
                 <tr>
-                    <% excludedProps = Event.allEvents.toList() << 'id' << 'version' << 'dateCreated' << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
-                    props = domainClass.properties.findAll {
-                        !excludedProps.contains(it.name) && it.type != null && !Collection.isAssignableFrom(it.type)
-                    }
-                    Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
-                    props.eachWithIndex { p, i ->
-                        if (i < 6) {
-                    %>
-                    <th><g:message code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}"/></th>
 
-                    <% }
-                    } %>
+                    <th><g:message code="etablissementUser.user.label" default="User"/></th>
+
+
+                    <th><g:message code="etablissementUser.springSecurityService.label"
+                                   default="Spring Security Service"/></th>
+
                 </tr>
                 </thead>
                 <tbody>
 
-                <g:each in="\${${propertyName}List}" status="i" var="${propertyName}">
+                <g:each in="${etablissementUserInstanceList}" status="i" var="etablissementUserInstance">
                     <tr>
-                        <% props.eachWithIndex { p, i ->
-                            if (i == 0) { %>
+
                         <td><g:link action="show"
-                                    id="\${${propertyName}.id}">\${fieldValue(bean: ${propertyName}, field: "${
-                                    p.name}")}</g:link></td>
-                        <% } else if (i < 6) {
-                            if (p.type == Boolean || p.type == boolean) { %>
-                        <td><g:formatBoolean boolean="\${${propertyName}.${p.name}}"/></td>
-                        <%
-                            } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
-                        <td><g:formatDate date="\${${propertyName}.${p.name}}" format="dd/MM/YYYY"/></td>
-                        <% } else { %>
-                        <td>\${fieldValue(bean: ${propertyName}, field: "${p.name}")}</td>
-                        <% }
-                        }
-                        } %>
+                                    id="${etablissementUserInstance.id}">${fieldValue(bean: etablissementUserInstance, field: "user")}</g:link></td>
+
+                        <td>${fieldValue(bean: etablissementUserInstance, field: "springSecurityService")}</td>
+
                     </tr>
                 </g:each>
 
