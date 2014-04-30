@@ -122,14 +122,6 @@
                     <th><g:message code="civilite.libelleReduit.label" default="Libelle Reduit"/></th>
 
 
-                    <th><g:message code="civilite.userCreate.label" default="User Create"/></th>
-
-
-                    <th><g:message code="civilite.userUpdate.label" default="User Update"/></th>
-
-
-                    <th><g:message code="civilite.springSecurityService.label" default="Spring Security Service"/></th>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -143,12 +135,6 @@
                         <td>${fieldValue(bean: civiliteInstance, field: "libelle")}</td>
 
                         <td>${fieldValue(bean: civiliteInstance, field: "libelleReduit")}</td>
-
-                        <td>${fieldValue(bean: civiliteInstance, field: "userCreate")}</td>
-
-                        <td>${fieldValue(bean: civiliteInstance, field: "userUpdate")}</td>
-
-                        <td>${fieldValue(bean: civiliteInstance, field: "springSecurityService")}</td>
 
                     </tr>
                 </g:each>

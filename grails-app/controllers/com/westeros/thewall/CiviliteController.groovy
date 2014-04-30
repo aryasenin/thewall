@@ -21,6 +21,8 @@ class CiviliteController {
 
     def save() {
         def civiliteInstance = new Civilite(params)
+        def etablissement = Etablissement.get(1)
+        civiliteInstance.etablissement = etablissement
         if (!civiliteInstance.save(flush: true)) {
             render(view: "list", model: [civiliteInstance: civiliteInstance])
             return

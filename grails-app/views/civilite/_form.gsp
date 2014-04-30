@@ -67,52 +67,5 @@
 
             <div class="separator bottom">
 
-                <div class="col-md-6">
-                    <!-- Group -->
-                    <div class="form-group">
-                        <label for="deleted" class="padTop col-md-4 control-label">
-                            <g:message code="civilite.deleted.label" default="Deleted"/>
 
-                        </label>
-
-                        <div class="col-md-6"><div class="checkbox"><label class="checkbox-custom"><g:checkBox
-                                name="deleted" value="${civiliteInstance?.deleted}"/> <i
-                                class="fa fa-fw fa-square-o disabled"></i></label></div></div>
-                    </div>
-                    <!-- // Group END -->
-                </div>
-
-                <div class="separator bottom">
-
-                    <div class="col-md-6">
-                        <!-- Group -->
-                        <div class="form-group">
-                            <label for="userCreate" class="padTop col-md-4 control-label">
-                                <g:message code="civilite.userCreate.label" default="User Create"/>
-
-                            </label>
-
-                            <div class="col-md-6"><g:textField class="form-control" name="userCreate"
-                                                               value="${civiliteInstance?.userCreate}"/></div>
-                        </div>
-                        <!-- // Group END -->
-                    </div>
-
-                    <div class="separator bottom">
-
-                        <div class="col-md-6">
-                            <!-- Group -->
-                            <div class="form-group">
-                                <label for="userUpdate" class="padTop col-md-4 control-label">
-                                    <g:message code="civilite.userUpdate.label" default="User Update"/>
-
-                                </label>
-
-                                <div class="col-md-6"><g:textField class="form-control" name="userUpdate"
-                                                                   value="${civiliteInstance?.userUpdate}"/></div>
-                            </div>
-                            <!-- // Group END -->
-                        </div>
-
-                        <div class="separator bottom">
 

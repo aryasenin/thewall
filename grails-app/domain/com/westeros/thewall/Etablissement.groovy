@@ -106,7 +106,7 @@ class Etablissement {
 
 
     String toString() {
-        return "${libEtab}"
+        return "${libelleEtab}"
     }
 
 
