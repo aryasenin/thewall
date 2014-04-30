@@ -13,11 +13,12 @@
             <div class="col-sm-8">
                 <g:textField class="form-control" name="codeEtab" maxlength="50" required=""
                              value="${etablissementInstance?.codeEtab}"/>
-            </div>
+        </div>
 
             <div class="separator bottom"></div>
         </div>
     </div>
+
 
     <div class="form-group">
         <div class="form-group ${hasErrors(bean: etablissementInstance, field: 'libelleEtab', 'error')} required">
@@ -30,7 +31,7 @@
             <div class="col-sm-8">
                 <g:textField class="form-control" name="libelleEtab" maxlength="200" required=""
                              value="${etablissementInstance?.libelleEtab}"/>
-            </div>
+        </div>
 
             <div class="separator bottom"></div>
         </div>
@@ -41,7 +42,7 @@
         <div class="col-sm-offset-2 col-sm-10">
             <g:submitButton name="create" class="btn btn-primary"
                             value="${message(code: 'default.button.create.label', default: 'Create')}"/>
-        </div>
+    </div>
     </div>
 
 </g:form>
