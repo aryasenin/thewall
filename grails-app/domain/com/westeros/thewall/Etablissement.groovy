@@ -58,11 +58,11 @@ class Etablissement {
     }
 
     static constraints = {
-        codeBPM(nullable: true)
         codeEtab(blank: false, size: 1..50, unique: true)
-        codeSms(nullable: true, size: 1..50, unique: true)
         libelleEtab(blank: false, size: 1..200)
         pays(nullable: true)
+        codeBPM(nullable: true)
+        codeSms(nullable: true, size: 1..50, unique: true)
         prefixeUrl(nullable: true, unique: true)
         villeEtab(nullable: true, size: 2..75)
         adresse1(nullable: true, size: 1..128)
@@ -106,7 +106,7 @@ class Etablissement {
 
 
     String toString() {
-        return "${libEtab}"
+        return "${libelleEtab}"
     }
 
 

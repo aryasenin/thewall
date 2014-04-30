@@ -2,7 +2,7 @@
 <% import grails.persistence.Event %>
 <g:form action="save" <%=multiPart ? ' enctype="multipart/form-data"' : '' %>>
 
-<% excludedProps = Event.allEvents.toList() << 'id' << 'version' << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'deleted' << 'etablissement'
+<% excludedProps = Event.allEvents.toList() << 'id' << 'version' << 'lastUpdated' << 'userCreated' << 'userUpdated' << 'dateCreated' << 'deleted' << 'etablissement'
 persistentPropNames = domainClass.persistentProperties*.name
 boolean hasHibernate = pluginManager?.hasGrailsPlugin('hibernate')
 if (hasHibernate && org.codehaus.groovy.grails.orm.hibernate.cfg.GrailsDomainBinder.getMapping(domainClass)?.identity?.generator == 'assigned') {
@@ -37,7 +37,7 @@ for (p in props) {
             display = (cp ? cp.display : true)
             required = (cp ? !(cp.propertyType in [boolean, Boolean]) && !cp.nullable && (cp.propertyType != String || !cp.blank) : false)
         }
-        if (display) { %>
+        if (required) { %>
 <div class="form-group">
     <div class="form-group \${hasErrors(bean: ${propertyName}, field: '${prefix}${p.name}', 'error')} ${
             required ? 'required' : ''}">

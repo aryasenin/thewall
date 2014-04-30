@@ -1,4 +1,3 @@
-
 <%@ page import="com.westeros.thewall.Etablissement" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -113,45 +112,44 @@
                 <!-- Table heading -->
                 <thead class="bg-primary">
                 <tr>
-                    
-                    <th><g:message code="etablissement.codeBPM.label" default="Code BPM"/></th>
 
-                    
                     <th><g:message code="etablissement.codeEtab.label" default="Code Etab"/></th>
 
-                    
-                    <th><g:message code="etablissement.codeSms.label" default="Code Sms"/></th>
 
-                    
                     <th><g:message code="etablissement.libelleEtab.label" default="Libelle Etab"/></th>
 
-                    
+
                     <th><g:message code="etablissement.pays.label" default="Pays"/></th>
 
-                    
+
+                    <th><g:message code="etablissement.codeBPM.label" default="Code BPM"/></th>
+
+
+                    <th><g:message code="etablissement.codeSms.label" default="Code Sms"/></th>
+
+
                     <th><g:message code="etablissement.prefixeUrl.label" default="Prefixe Url"/></th>
 
-                    
                 </tr>
                 </thead>
                 <tbody>
 
                 <g:each in="${etablissementInstanceList}" status="i" var="etablissementInstance">
                     <tr>
-                        
+
                         <td><g:link action="show"
-                                    id="${etablissementInstance.id}">${fieldValue(bean: etablissementInstance, field: "codeBPM")}</g:link></td>
-                        
-                        <td>${fieldValue(bean: etablissementInstance, field: "codeEtab")}</td>
-                        
-                        <td>${fieldValue(bean: etablissementInstance, field: "codeSms")}</td>
-                        
+                                    id="${etablissementInstance.id}">${fieldValue(bean: etablissementInstance, field: "codeEtab")}</g:link></td>
+
                         <td>${fieldValue(bean: etablissementInstance, field: "libelleEtab")}</td>
-                        
+
                         <td>${fieldValue(bean: etablissementInstance, field: "pays")}</td>
-                        
+
+                        <td>${fieldValue(bean: etablissementInstance, field: "codeBPM")}</td>
+
+                        <td>${fieldValue(bean: etablissementInstance, field: "codeSms")}</td>
+
                         <td>${fieldValue(bean: etablissementInstance, field: "prefixeUrl")}</td>
-                        
+
                     </tr>
                 </g:each>
 
