@@ -1,4 +1,4 @@
-<%@ page import="com.westeros.thewall.User" %>
+<%@ page import="com.westeros.thewall.Civilite" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-discover"> <![endif]-->
@@ -11,9 +11,9 @@
 <!--[if !IE]><!-->
 <html class="sidebar sidebar-discover"><!-- <![endif]-->
 <head>
-    <title><g:message code="user.create" default="Création Users"/></title>
+    <title><g:message code="civilite.create" default="Création Civilites"/></title>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
+    <g:set var="entityName" value="${message(code: 'civilite.label', default: 'Civilite')}"/>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -25,7 +25,7 @@
 
 <body>
 
-<h1><g:message code="user.show" default="Création User"/></h1>
+<h1><g:message code="civilite.show" default="Création Civilite"/></h1>
 
 <div class="innerLR">
     <!-- Widget -->
@@ -48,8 +48,8 @@
             <!-- // Alert END -->
         </g:if>
 
-        <g:hasErrors bean="${userInstance}">
-            <g:eachError bean="${userInstance}" var="error">
+        <g:hasErrors bean="${civiliteInstance}">
+            <g:eachError bean="${civiliteInstance}" var="error">
                 <!-- Alert -->
                 <div class="alert alert-danger"
                      <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>>
@@ -81,14 +81,14 @@
         </g:if>
         <div class="widget">
             <div class="widget-head">
-                <h4 class="heading">Informations de User</h4>
+                <h4 class="heading">Informations de Civilite</h4>
             </div>
 
             <div class="widget-body">
 
                 <div class="row">
 
-                    <g:form action="save" enctype="multipart/form-data">
+                    <g:form action="save">
                         <g:render template="form"/>
                         <div class="separator"></div>
                         <!-- Form actions -->

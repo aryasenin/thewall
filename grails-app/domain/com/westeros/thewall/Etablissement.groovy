@@ -3,19 +3,18 @@ package com.westeros.thewall
 class Etablissement {
     //static auditable = true
 
-    //Relation
-    Pays pays
-
     Long id
     Long version
 
+    Pays pays
+
     String codeEtab
     String codeSms
-    String libelleEtab
+    String libEtab
     String villeEtab
-    String adresse1
-    String adresse2
-    String adresse3
+    String adresseEtab1
+    String adresseEtab2
+    String adresseEtab3
     String telEtab
     String faxEtab
     String emailEtab
@@ -23,19 +22,13 @@ class Etablissement {
     String senderId
     String codeSmsServiceEtab
 
-    //  Boolean isRootEtab = false
-    /* Etablissement Pere: peut "englober" plusieurs etablissements. Les etablissements liés à cet
-                                     etab (etab dont isRootEtab==true) peuvent affecter des etablissements à tout utilisateur.
-                                     Les autres, non. A changer directement dans la bdd. Ou en superUser
-                                  */
-
     //info reporting
     byte[] logo
     byte[] fondCarte
     String signature
     String piedPage
-    String typeFileLogo
-    String typeFileFondCarte
+    String typeFileL
+    String typeFileF
 
     byte[] reglementInterieur
     String typeFileReglementInterieur
@@ -56,40 +49,42 @@ class Etablissement {
     String userCreated
     String userUpdated
 
+    static numeroPattern = /^(0|\+|[0-9])*$/
+
     static mapping = {
-        logo sqlType: "mediumblob"
+        // logo sqlType: "mediumblob"
         //fondCarte sqlType: "mediumblob"
-        reglementInterieur sqlType: "mediumblob"
+        //reglementInterieur sqlType: "mediumblob"
     }
 
     static constraints = {
-        pays(nullable: true)
-        codeBPM(nullable: true, unique: true)
+        codeBPM(nullable: true)
         codeEtab(blank: false, size: 1..50, unique: true)
         codeSms(nullable: true, size: 1..50, unique: true)
-        libelleEtab(blank: false, size: 1..200)
+        libEtab(blank: false, size: 1..200)
+        pays(nullable: true)
         prefixeUrl(nullable: true, unique: true)
         villeEtab(nullable: true, size: 2..75)
-        adresse1(nullable: true, size: 1..128)
-        adresse2(nullable: true, size: 1..128)
-        adresse3(nullable: true, size: 1..128)
+        adresseEtab1(nullable: true, size: 1..128)
+        adresseEtab2(nullable: true, size: 1..128)
+        adresseEtab3(nullable: true, size: 1..128)
         telEtab(nullable: true)
         faxEtab(nullable: true)
-        emailEtab(nullable: true, email: true, size: 0..60, unique: true)
-        siteWebEtab(nullable: true, url: true, size: 0..60, unique: true)
-        senderId(nullable: true, unique: true)
+        emailEtab(nullable: true, email: true, size: 0..60)
+        siteWebEtab(nullable: true, url: true, size: 0..60)
+        senderId(nullable: true)
         indSendEmail(nullable: true)
         indSendSms(nullable: true)
 
-        codeSmsServiceEtab(nullable: true, unique: true)
+        codeSmsServiceEtab(nullable: true)
 
         //Info reporting
         signature(nullable: true)
         piedPage(nullable: true)
         logo(nullable: true)
         fondCarte(nullable: true)
-        typeFileLogo(nullable: true)
-        typeFileFondCarte(nullable: true)
+        typeFileL(nullable: true)
+        typeFileF(nullable: true)
         reglementInterieur(nullable: true)
         typeFileReglementInterieur(nullable: true)
 
@@ -111,10 +106,9 @@ class Etablissement {
 
 
     String toString() {
-        return "${libelleEtabEtab}"
+        return "${libEtab}"
     }
 
 
     static modelePere = ""
-
 }

@@ -1,53 +1,44 @@
 package com.westeros.thewall
 
-import org.springframework.web.context.request.RequestContextHolder
+class Civilite {
 
-class Pays {
-    //static auditable = true
+    //static auditable = false
 
-    //static hasMany = [etablissements: Etablissement]
+    //Relation One-to-many
+    Etablissement etablissement
+
 
     Long id
     Long version
-
     String code
-    String indicatif
     String libelle
-    String libelleNationalite
-    String republique
+    String libelleReduit
 
-
+    //Informations Système
+    Boolean deleted = false
     Date dateCreated
     Date lastUpdated
-    String userCreated
-    String userUpdated
+    String userCreate
+    String userUpdate
 
-    //static transients = ['etablissement']
+    static numeroPattern = /^(0|\+|[0-9])*$/ //Les caractères acceptés pour les numeros de téléphone et fax telephone(matches: numeroPattern)
 
-    /*def getEtablissement() {
-        def currentRequest = RequestContextHolder.requestAttributes
-        if (currentRequest) {
-            return currentRequest.session.etabEnCours
-        } else {
-            // pas de session disponible
-            return null
-        }
-    }*/
-
+    static mapping = {
+        //textArea type: "text"
+        //photo sqlType: "mediumblob"
+    }
 
     static constraints = {
+        etablissement()
+        code(size: 1..50, blank: false, unique: ['etablissement', 'code'])
+        libelle(size: 1..200, blank: false)
+        libelleReduit(size: 1..50, blank: false)
 
-        code(blank: false)
-        libelle(blank: false)
-        libelleNationalite(nullable: true)
-        indicatif(nullable: true)
-        republique(nullable: true)
-
-
+        deleted(nullable: true)
         dateCreated(nullable: true)
         lastUpdated(nullable: true)
-        userCreated(nullable: true)
-        userUpdated(nullable: true)
+        userCreate(nullable: true)
+        userUpdate(nullable: true)
     }
 
     String toString() {

@@ -1,4 +1,4 @@
-<%@ page import="com.westeros.thewall.User" %>
+<%@ page import="com.westeros.thewall.Civilite" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-discover"> <![endif]-->
@@ -11,9 +11,9 @@
 <!--[if !IE]><!-->
 <html class="sidebar sidebar-discover"><!-- <![endif]-->
 <head>
-    <title><g:message code="user.list" default="Les Users"/></title>
+    <title><g:message code="civilite.list" default="Les Civilites"/></title>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
+    <g:set var="entityName" value="${message(code: 'civilite.label', default: 'Civilite')}"/>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -25,13 +25,13 @@
 
 <body>
 
-<h1><g:message code="user.list" default="Les Users"/>
-    <a href="#modal-new-user" data-toggle="modal" style="float:right; background:#FFF"
-       class="btn btn-primary btn-stroke"><g:message code="user.add" default="Ajouter"/></a>
+<h1><g:message code="civilite.list" default="Les Civilites"/>
+    <a href="#modal-new-civilite" data-toggle="modal" style="float:right; background:#FFF"
+       class="btn btn-primary btn-stroke"><g:message code="civilite.add" default="Ajouter"/></a>
 </h1>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-new-user">
+<div class="modal fade" id="modal-new-civilite">
 
     <div class="modal-dialog">
         <div class="modal-content">
@@ -40,8 +40,8 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-                <h3 class="modal-title"><g:message code="user.new"
-                                                   default="Nouveau User"/></h3>
+                <h3 class="modal-title"><g:message code="civilite.new"
+                                                   default="Nouveau Civilite"/></h3>
             </div>
             <!-- // Modal heading END -->
 
@@ -113,42 +113,42 @@
                 <thead class="bg-gray">
                 <tr>
 
-                    <th><g:message code="user.userType.label" default="User Type"/></th>
+                    <th><g:message code="civilite.code.label" default="Code"/></th>
 
 
-                    <th><g:message code="user.civilite.label" default="Civilite"/></th>
+                    <th><g:message code="civilite.libelle.label" default="Libelle"/></th>
 
 
-                    <th><g:message code="user.nom.label" default="Nom"/></th>
+                    <th><g:message code="civilite.libelleReduit.label" default="Libelle Reduit"/></th>
 
 
-                    <th><g:message code="user.prenom.label" default="Prenom"/></th>
+                    <th><g:message code="civilite.userCreate.label" default="User Create"/></th>
 
 
-                    <th><g:message code="user.email.label" default="Email"/></th>
+                    <th><g:message code="civilite.userUpdate.label" default="User Update"/></th>
 
 
-                    <th><g:message code="user.telMobile.label" default="Tel Mobile"/></th>
+                    <th><g:message code="civilite.springSecurityService.label" default="Spring Security Service"/></th>
 
                 </tr>
                 </thead>
                 <tbody>
 
-                <g:each in="${userInstanceList}" status="i" var="userInstance">
+                <g:each in="${civiliteInstanceList}" status="i" var="civiliteInstance">
                     <tr>
 
                         <td><g:link action="show"
-                                    id="${userInstance.id}">${fieldValue(bean: userInstance, field: "userType")}</g:link></td>
+                                    id="${civiliteInstance.id}">${fieldValue(bean: civiliteInstance, field: "code")}</g:link></td>
 
-                        <td>${fieldValue(bean: userInstance, field: "civilite")}</td>
+                        <td>${fieldValue(bean: civiliteInstance, field: "libelle")}</td>
 
-                        <td>${fieldValue(bean: userInstance, field: "nom")}</td>
+                        <td>${fieldValue(bean: civiliteInstance, field: "libelleReduit")}</td>
 
-                        <td>${fieldValue(bean: userInstance, field: "prenom")}</td>
+                        <td>${fieldValue(bean: civiliteInstance, field: "userCreate")}</td>
 
-                        <td>${fieldValue(bean: userInstance, field: "email")}</td>
+                        <td>${fieldValue(bean: civiliteInstance, field: "userUpdate")}</td>
 
-                        <td>${fieldValue(bean: userInstance, field: "telMobile")}</td>
+                        <td>${fieldValue(bean: civiliteInstance, field: "springSecurityService")}</td>
 
                     </tr>
                 </g:each>
