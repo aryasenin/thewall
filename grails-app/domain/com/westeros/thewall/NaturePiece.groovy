@@ -1,35 +1,46 @@
-@artifact.package@class @artifact.name@ {
+package com.westeros.thewall
+
+class NaturePiece {
     //static auditable = true
 
     Long id
     Long version
 
     Etablissement etablissement
+    String naturePiece
+    String libelleNaturePiece
+
+    Boolean indAutorisationTransaction = false
 
     //Informations Système
     Boolean deleted = false
     Date dateCreated
-    Date lastUpdated
-    String userCreated
-    String userUpdated
+    Date dateUpdated
+    Date dateDeleted
+    String userCreate
+    String userUpdate
+    String userDelete
 
-    static mapping = {
-        //textArea type: "text"
-        //photo sqlType: "mediumblob"
-    }
 
     static constraints = {
         etablissement()
+        naturePiece(blank: false, size: 1..50, unique: true)
+        libelleNaturePiece(blank: false, size: 1..200, unique: true)
+        indAutorisationTransaction()
 
-        deleted(nullable: true)
+        deleted()
         dateCreated(nullable: true)
-        lastUpdated(nullable: true)
-        userCreated(nullable: true)
-        userUpdated(nullable: true)
+        dateUpdated(nullable: true)
+        dateDeleted(nullable: true)
+        userCreate(nullable: true)
+        userUpdate(nullable: true)
+        userUpdate(nullable: true)
+        userDelete(nullable: true)
+
     }
 
     String toString() {
-        return "${id}"
+        return "${libelleNaturePiece}"
     }
 
     def springSecurityService
@@ -38,9 +49,9 @@
         // userCreated = principalInfo?.username
         def userPrincipal = springSecurityService.currentUser
         if ((userPrincipal != null) && (userPrincipal != 'anonymousUser')) {
-            userCreated = userPrincipal.username
+            userCreate = userPrincipal.username
         } else {
-            userCreated = ""
+            userCreate = ""
         }
 
     }
@@ -49,9 +60,9 @@
         // userUpdated = principalInfo?.username
         def userPrincipal = springSecurityService.currentUser
         if ((userPrincipal != null) && (userPrincipal != 'anonymousUser')) {
-            userUpdated = userPrincipal.username
+            userUpdate = userPrincipal.username
         } else {
-            userUpdated = ""
+            userUpdate = ""
         }
     }
 
